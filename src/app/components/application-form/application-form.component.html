@@ -2,21 +2,18 @@
     <div class="application-form__container">
         <!-- Section Header -->
         <div class="application-form__header">
-            <h2 class="application-form__title">Aplică Acum</h2>
-            <p class="application-form__subtitle">Completează formularul și te vom contacta în 24 de ore</p>
+            <h2 class="application-form__title">{{ t('form.title') }}</h2>
+            <p class="application-form__subtitle">{{ t('form.subtitle') }}</p>
         </div>
 
         @if (isSubmitted()) {
         <!-- Success State -->
         <div class="application-form__success">
             <div class="application-form__success-icon">✅</div>
-            <h3 class="application-form__success-title">Aplicație Trimisă cu Succes!</h3>
-            <p class="application-form__success-text">
-                Mulțumim pentru interes! Te vom contacta în maximum 24 de ore pentru a discuta despre oportunitățile
-                disponibile.
-            </p>
+            <h3 class="application-form__success-title">{{ t('form.success.title') }}</h3>
+            <p class="application-form__success-text">{{ t('form.success.message') }}</p>
             <button type="button" class="application-form__reset-btn" (click)="resetForm()">
-                Trimite o Nouă Aplicație
+                {{ t('common.resetForm') }}
             </button>
         </div>
         } @else {
@@ -25,72 +22,72 @@
             <div class="form__grid">
                 <!-- Full Name -->
                 <div class="form__field form__field--full">
-                    <label class="form__label" for="fullName">Nume Complet *</label>
+                    <label class="form__label" for="fullName">{{ t('form.fields.fullName') }} *</label>
                     <input type="text" id="fullName" class="form__input"
                         [class.error]="form.get('fullName')?.invalid && form.get('fullName')?.touched"
-                        formControlName="fullName" placeholder="Ex: Ion Popescu">
+                        formControlName="fullName" [placeholder]="t('form.fields.fullNamePlaceholder')">
                     @if (form.get('fullName')?.invalid && form.get('fullName')?.touched) {
-                    <span class="form__error">Numele este obligatoriu (min. 3 caractere)</span>
+                    <span class="form__error">{{ t('form.errors.fullNameRequired') }}</span>
                     }
                 </div>
 
                 <!-- Email -->
                 <div class="form__field">
-                    <label class="form__label" for="email">Email *</label>
+                    <label class="form__label" for="email">{{ t('form.fields.email') }} *</label>
                     <input type="email" id="email" class="form__input"
                         [class.error]="form.get('email')?.invalid && form.get('email')?.touched" formControlName="email"
-                        placeholder="email@exemplu.com">
+                        [placeholder]="t('form.fields.emailPlaceholder')">
                     @if (form.get('email')?.invalid && form.get('email')?.touched) {
-                    <span class="form__error">Adresă de email validă este obligatorie</span>
+                    <span class="form__error">{{ t('form.errors.emailRequired') }}</span>
                     }
                 </div>
 
                 <!-- Phone -->
                 <div class="form__field">
-                    <label class="form__label" for="phone">Telefon (WhatsApp) *</label>
+                    <label class="form__label" for="phone">{{ t('form.fields.phone') }} *</label>
                     <input type="tel" id="phone" class="form__input"
                         [class.error]="form.get('phone')?.invalid && form.get('phone')?.touched" formControlName="phone"
-                        placeholder="+40 7XX XXX XXX">
+                        [placeholder]="t('form.fields.phonePlaceholder')">
                     @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
-                    <span class="form__error">Număr de telefon valid este obligatoriu</span>
+                    <span class="form__error">{{ t('form.errors.phoneRequired') }}</span>
                     }
                 </div>
 
                 <!-- Profession -->
                 <div class="form__field">
-                    <label class="form__label" for="profession">Meseria Principală *</label>
+                    <label class="form__label" for="profession">{{ t('form.fields.profession') }} *</label>
                     <select id="profession" class="form__select"
                         [class.error]="form.get('profession')?.invalid && form.get('profession')?.touched"
                         formControlName="profession">
-                        <option value="" disabled>Selectează meseria</option>
+                        <option value="" disabled>{{ t('form.fields.professionPlaceholder') }}</option>
                         @for (profession of professions; track profession) {
                         <option [value]="profession">{{ profession }}</option>
                         }
                     </select>
                     @if (form.get('profession')?.invalid && form.get('profession')?.touched) {
-                    <span class="form__error">Selectează meseria ta</span>
+                    <span class="form__error">{{ t('form.errors.professionRequired') }}</span>
                     }
                 </div>
 
                 <!-- Experience -->
                 <div class="form__field">
-                    <label class="form__label" for="experience">Ani de Experiență *</label>
+                    <label class="form__label" for="experience">{{ t('form.fields.experience') }} *</label>
                     <select id="experience" class="form__select"
                         [class.error]="form.get('experience')?.invalid && form.get('experience')?.touched"
                         formControlName="experience">
-                        <option value="" disabled>Selectează experiența</option>
+                        <option value="" disabled>{{ t('form.fields.experiencePlaceholder') }}</option>
                         @for (exp of experienceOptions; track exp) {
                         <option [value]="exp">{{ exp }}</option>
                         }
                     </select>
                     @if (form.get('experience')?.invalid && form.get('experience')?.touched) {
-                    <span class="form__error">Selectează experiența ta</span>
+                    <span class="form__error">{{ t('form.errors.experienceRequired') }}</span>
                     }
                 </div>
 
                 <!-- Languages -->
                 <div class="form__field form__field--full">
-                    <label class="form__label">Limbi Străine Cunoscute *</label>
+                    <label class="form__label">{{ t('form.fields.languages') }} *</label>
                     <div class="form__checkboxes">
                         @for (lang of languages; track lang.id) {
                         <label class="form__checkbox">
@@ -101,13 +98,13 @@
                         }
                     </div>
                     @if (!hasLanguageSelected && form.touched) {
-                    <span class="form__error">Selectează cel puțin o limbă străină</span>
+                    <span class="form__error">{{ t('form.errors.languageRequired') }}</span>
                     }
                 </div>
 
                 <!-- CV Upload -->
                 <div class="form__field form__field--full">
-                    <label class="form__label">Încarcă CV (PDF, DOC) - opțional</label>
+                    <label class="form__label">{{ t('form.fields.cv') }}</label>
                     <div class="form__upload" [class.has-file]="fileName()">
                         @if (fileName()) {
                         <div class="form__upload-file">
@@ -117,7 +114,7 @@
                         } @else {
                         <label class="form__upload-label" for="cv">
                             <span class="form__upload-icon">📄</span>
-                            <span class="form__upload-text">Drag & drop sau click pentru a încărca</span>
+                            <span class="form__upload-text">{{ t('form.fields.cvUpload') }}</span>
                         </label>
                         <input type="file" id="cv" class="form__upload-input" accept=".pdf,.doc,.docx"
                             (change)="onFileSelected($event)">
@@ -130,9 +127,9 @@
             <button type="submit" class="form__submit" [disabled]="isSubmitting()">
                 @if (isSubmitting()) {
                 <span class="form__submit-spinner"></span>
-                Se trimite...
+                {{ t('common.sending') }}
                 } @else {
-                Trimite Aplicația
+                {{ t('common.submit') }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />

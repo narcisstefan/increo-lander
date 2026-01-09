@@ -190,4 +190,121 @@
         font-size: $font-size-lg;
         padding: $spacing-4 $spacing-8;
     }
+
+    // Language selector
+    &__lang {
+        position: relative;
+        display: none;
+
+        @include lg {
+            display: block;
+        }
+
+        &-btn {
+            display: flex;
+            align-items: center;
+            gap: $spacing-2;
+            background: rgba($color-text-primary, 0.1);
+            border: 1px solid $color-border;
+            border-radius: $border-radius;
+            padding: $spacing-2 $spacing-3;
+            color: $color-text-primary;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-medium;
+            cursor: pointer;
+            transition: all $transition-base;
+
+            &:hover {
+                background: rgba($color-text-primary, 0.15);
+                border-color: $color-text-secondary;
+            }
+        }
+
+        &-code {
+            font-weight: $font-weight-semibold;
+        }
+
+        &-arrow {
+            transition: transform $transition-base;
+
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+
+        &-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 120px;
+            background: $color-bg-card;
+            border: 1px solid $color-border;
+            border-radius: $border-radius;
+            box-shadow: $shadow-lg;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all $transition-base;
+            overflow: hidden;
+
+            &.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        &-option {
+            display: block;
+            width: 100%;
+            padding: $spacing-3 $spacing-4;
+            background: none;
+            border: none;
+            color: $color-text-secondary;
+            font-size: $font-size-sm;
+            text-align: left;
+            cursor: pointer;
+            transition: all $transition-base;
+
+            &:hover {
+                background: rgba($color-primary, 0.1);
+                color: $color-text-primary;
+            }
+
+            &.active {
+                background: rgba($color-primary, 0.2);
+                color: $color-primary;
+                font-weight: $font-weight-medium;
+            }
+        }
+    }
+
+    // Mobile language selector
+    &__mobile-lang {
+        display: flex;
+        gap: $spacing-2;
+        margin-top: $spacing-4;
+
+        &-btn {
+            padding: $spacing-2 $spacing-4;
+            background: rgba($color-text-primary, 0.1);
+            border: 1px solid $color-border;
+            border-radius: $border-radius;
+            color: $color-text-secondary;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-medium;
+            cursor: pointer;
+            transition: all $transition-base;
+
+            &:hover {
+                background: rgba($color-text-primary, 0.15);
+            }
+
+            &.active {
+                background: $color-primary;
+                border-color: $color-primary;
+                color: $color-bg-dark;
+            }
+        }
+    }
 }

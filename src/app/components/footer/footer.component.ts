@@ -1,32 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
-    selector: 'app-footer',
-    standalone: true,
-    templateUrl: './footer.component.html',
-    styleUrl: './footer.component.scss'
+  selector: 'app-footer',
+  standalone: true,
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-    readonly currentYear = new Date().getFullYear();
+  private platformId = inject(PLATFORM_ID);
+  private translationService = inject(TranslationService);
 
-    readonly quickLinks = [
-        { label: 'Beneficii', href: '#beneficii' },
-        { label: 'Meserii', href: '#meserii' },
-        { label: 'Cerințe', href: '#cerinte' },
-        { label: 'Aplică', href: '#aplica' }
-    ];
+  readonly currentYear = new Date().getFullYear();
 
-    readonly legalLinks = [
-        { label: 'Politica de Confidențialitate', href: '#' },
-        { label: 'Termeni și Condiții', href: '#' },
-        { label: 'GDPR', href: '#' }
-    ];
+  readonly quickLinks = [
+    { labelKey: 'nav.benefits', href: '#beneficii' },
+    { labelKey: 'nav.professions', href: '#meserii' },
+    { labelKey: 'nav.requirements', href: '#cerinte' },
+    { labelKey: 'nav.apply', href: '#aplica' },
+  ];
 
-    scrollToSection(event: Event, href: string): void {
-        event.preventDefault();
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+  readonly legalLinks = [
+    { labelKey: 'footer.privacy', href: '#' },
+    { labelKey: 'footer.terms', href: '#' },
+    { labelKey: 'footer.gdpr', href: '#' },
+  ];
+
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.translationService.t(key, params);
+  }
+
+  scrollToSection(event: Event, href: string): void {
+    event.preventDefault();
+    if (isPlatformBrowser(this.platformId)) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+  }
 }

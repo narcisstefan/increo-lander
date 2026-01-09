@@ -1,0 +1,226 @@
+{
+  "common": {
+    "applyNow": "Jetzt Bewerben",
+    "learnMore": "Mehr Erfahren",
+    "scroll": "Scrollen",
+    "sending": "Wird gesendet...",
+    "submit": "Bewerbung Absenden",
+    "resetForm": "Neue Bewerbung Senden"
+  },
+  "nav": {
+    "benefits": "Vorteile",
+    "professions": "Berufe",
+    "whySwitzerland": "Warum Schweiz",
+    "contact": "Kontakt",
+    "requirements": "Anforderungen",
+    "apply": "Bewerben"
+  },
+  "hero": {
+    "badge": "OFFIZIELLE REKRUTIERUNG FÜR DIE SCHWEIZ",
+    "title": "Bauen Sie Ihre",
+    "titleAccent": "Zukunft",
+    "titleEnd": "in der Schweiz",
+    "subtitle": "Gehälter ab <strong>4.500 CHF</strong> netto pro Monat. Unterkunft und Transport garantiert. Schweizer Arbeitsvertrag mit allen Vorteilen.",
+    "verifiedJob": "Verifizierter Job",
+    "swissContract": "Schweizer Vertrag",
+    "avgSalary": "5.500 CHF/Monat",
+    "avgSalaryDesc": "Durchschnittliches Nettogehalt",
+    "stats": {
+      "workers": "Platzierte Arbeiter",
+      "experience": "Jahre Erfahrung",
+      "satisfaction": "Zufriedenheit"
+    }
+  },
+  "benefits": {
+    "title": "Warum in der Schweiz arbeiten?",
+    "subtitle": "Vorteile, die Ihr berufliches und finanzielles Leben verändern werden",
+    "items": [
+      {
+        "icon": "💰",
+        "title": "Attraktive Gehälter",
+        "description": "4.500 - 7.000 CHF netto monatlich für qualifizierte Bauarbeiter"
+      },
+      {
+        "icon": "🏠",
+        "title": "Unterkunft Garantiert",
+        "description": "Moderne Wohnung in der Nähe der Baustelle, vollständig vom Arbeitgeber bezahlt"
+      },
+      {
+        "icon": "✈️",
+        "title": "Kostenloser Transport",
+        "description": "Reise von Rumänien in die Schweiz vollständig vom Unternehmen organisiert"
+      },
+      {
+        "icon": "📋",
+        "title": "Legaler Vertrag",
+        "description": "Schweizer Vertrag mit allen Rechten eines lokalen Bürgers"
+      },
+      {
+        "icon": "🏥",
+        "title": "Krankenversicherung",
+        "description": "Vollständige Deckung bei Unfall oder Berufskrankheit"
+      },
+      {
+        "icon": "🎁",
+        "title": "13. Monatsgehalt",
+        "description": "Bonus im Dezember + weitere Vorteile im Laufe des Jahres"
+      }
+    ]
+  },
+  "professions": {
+    "title": "Gesuchte Berufe",
+    "subtitle": "Wählen Sie Ihr Fachgebiet und sehen Sie das Gehaltsangebot",
+    "items": [
+      { "icon": "🧱", "title": "Maurer", "salary": "5.000-6.000 CHF" },
+      { "icon": "🪵", "title": "Zimmermann", "salary": "5.000-6.500 CHF" },
+      { "icon": "⚡", "title": "Elektriker", "salary": "5.500-7.000 CHF" },
+      { "icon": "🔧", "title": "Installateur", "salary": "5.000-6.500 CHF" },
+      { "icon": "🪞", "title": "Fliesenleger", "salary": "4.800-5.800 CHF" },
+      { "icon": "📐", "title": "Trockenbauer", "salary": "4.500-5.500 CHF" },
+      { "icon": "🚪", "title": "Schreiner", "salary": "5.000-6.000 CHF" },
+      { "icon": "🎨", "title": "Maler", "salary": "4.500-5.500 CHF" },
+      { "icon": "🏗️", "title": "Eisenflechter", "salary": "5.200-6.200 CHF" },
+      { "icon": "👷", "title": "Bauleiter", "salary": "6.000-8.000 CHF" }
+    ]
+  },
+  "requirements": {
+    "title": "Welche Anforderungen müssen Sie erfüllen?",
+    "subtitle": "Prüfen Sie, ob Sie sich für eine Stelle in der Schweiz qualifizieren",
+    "items": [
+      {
+        "icon": "🔧",
+        "title": "Bauerfahrung",
+        "description": "Mindestens 2-3 Jahre nachweisbare Erfahrung im Baubereich",
+        "borderColor": "red"
+      },
+      {
+        "icon": "🗣️",
+        "title": "Sprachkenntnisse",
+        "description": "Mindestens Konversationsniveau in einer der Sprachen:",
+        "highlight": "Deutsch, Italienisch, Französisch oder Portugiesisch",
+        "borderColor": "gold"
+      },
+      {
+        "icon": "📅",
+        "title": "Verfügbarkeit",
+        "description": "Langfristige Beschäftigung, mindestens 6 Monate, mit Verlängerungsmöglichkeit",
+        "borderColor": "blue"
+      }
+    ]
+  },
+  "whySwitzerland": {
+    "title": "Warum in der Schweiz arbeiten?",
+    "intro": "Die Schweiz ist nicht nur ein Land - sie ist eine Gelegenheit, Ihr Leben zu verändern. Mit den höchsten Gehältern in Europa, ausgezeichneten Arbeitsbedingungen und einer unvergleichlichen Lebensqualität ist die Schweiz das ideale Ziel für Bauprofis.",
+    "benefitsTitle": "Was wir Ihnen bieten:",
+    "benefits": [
+      {
+        "icon": "💰",
+        "title": "Die höchsten Gehälter in Europa",
+        "description": "Die Schweiz bietet die wettbewerbsfähigsten Gehälter im Bausektor. Ein qualifizierter Arbeiter verdient zwischen 4.500 und 7.000 CHF netto monatlich - 3-4 mal mehr als in Rumänien."
+      },
+      {
+        "icon": "🏔️",
+        "title": "Außergewöhnliche Lebensqualität",
+        "description": "Die Schweiz gehört zu den Top 3 weltweit für Lebensqualität. Saubere Städte, spektakuläre Natur, einwandfreie Infrastruktur und ein erstklassiges Gesundheitssystem."
+      },
+      {
+        "icon": "🔒",
+        "title": "Stabilität und Sicherheit",
+        "description": "Eine der stabilsten Volkswirtschaften der Welt. Sichere langfristige Jobs mit legalen Verträgen und allen sozialen Leistungen nach Schweizer Recht."
+      },
+      {
+        "icon": "🌍",
+        "title": "Internationale Erfahrung",
+        "description": "Sie werden mit multinationalen Teams arbeiten, neue Bautechniken erlernen und wertvolle Erfahrungen sammeln, die in ganz Europa anerkannt werden."
+      }
+    ],
+    "lifestyleTitle": "Mehr als nur ein Job - ein Lebenserlebnis:",
+    "lifestylePoints": [
+      "Sie werden traumhafte Alpenlandschaften entdecken - die Alpen sind nur wenige Minuten entfernt",
+      "Sie werden die berühmte Schweizer Pünktlichkeit und Organisation erleben",
+      "Sie können Geld nach Hause an Ihre Familie schicken - und vom großzügigen Gehalt erheblich sparen",
+      "Sie haben Zugang zu einem der besten Gesundheitssysteme der Welt",
+      "Sie arbeiten unter sicheren Bedingungen, mit modernen Geräten und hohen Standards"
+    ],
+    "ctaText": "Sind Sie bereit für den Schritt in ein besseres Leben?",
+    "ctaHighlight": "Füllen Sie das Bewerbungsformular aus",
+    "ctaEnd": "und wir kontaktieren Sie innerhalb von 24 Stunden!"
+  },
+  "form": {
+    "title": "Jetzt Bewerben",
+    "subtitle": "Füllen Sie das Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden",
+    "success": {
+      "title": "Bewerbung Erfolgreich Gesendet!",
+      "message": "Vielen Dank für Ihr Interesse! Wir werden Sie innerhalb von 24 Stunden kontaktieren, um über verfügbare Möglichkeiten zu sprechen."
+    },
+    "fields": {
+      "fullName": "Vollständiger Name",
+      "fullNamePlaceholder": "z.B.: Max Mustermann",
+      "email": "E-Mail",
+      "emailPlaceholder": "email@beispiel.com",
+      "phone": "Telefon (WhatsApp)",
+      "phonePlaceholder": "+49 XXX XXX XXXX",
+      "profession": "Hauptberuf",
+      "professionPlaceholder": "Beruf auswählen",
+      "experience": "Jahre Erfahrung",
+      "experiencePlaceholder": "Erfahrung auswählen",
+      "languages": "Bekannte Fremdsprachen",
+      "cv": "Lebenslauf hochladen (PDF, DOC) - optional",
+      "cvUpload": "Drag & Drop oder klicken zum Hochladen"
+    },
+    "errors": {
+      "fullNameRequired": "Name ist erforderlich (min. 3 Zeichen)",
+      "emailRequired": "Gültige E-Mail-Adresse ist erforderlich",
+      "phoneRequired": "Gültige Telefonnummer ist erforderlich",
+      "professionRequired": "Wählen Sie Ihren Beruf",
+      "experienceRequired": "Wählen Sie Ihre Erfahrung",
+      "languageRequired": "Wählen Sie mindestens eine Fremdsprache"
+    },
+    "professions": [
+      "Maurer",
+      "Zimmermann",
+      "Eisenflechter",
+      "Elektriker",
+      "Fliesenleger",
+      "Trockenbauer",
+      "Schreiner",
+      "Maler",
+      "Installateur",
+      "Bauleiter",
+      "Anderer Beruf"
+    ],
+    "experienceOptions": [
+      "1-2 Jahre",
+      "3-5 Jahre",
+      "5-10 Jahre",
+      "10+ Jahre"
+    ],
+    "languages": [
+      { "id": "german", "label": "Deutsch" },
+      { "id": "italian", "label": "Italienisch" },
+      { "id": "french", "label": "Französisch" },
+      { "id": "portuguese", "label": "Portugiesisch" },
+      { "id": "english", "label": "Englisch" }
+    ]
+  },
+  "team": {
+    "title": "Kontaktieren Sie Uns Direkt",
+    "subtitle": "Unser engagiertes Team ist hier, um alle Ihre Fragen zu beantworten. Zögern Sie nicht, uns direkt für Details zu den verfügbaren Möglichkeiten zu kontaktieren.",
+    "ctaText": "Oder füllen Sie das obige Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden!"
+  },
+  "footer": {
+    "description": "Professionelle Rekrutierungsagentur für den Bausektor in der Schweiz. Wir verbinden rumänische Talente mit den besten Schweizer Karrieremöglichkeiten.",
+    "contact": "Kontakt",
+    "location": "6340 Baar, Schweiz",
+    "quickLinks": "Schnelllinks",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "gdpr": "DSGVO",
+    "copyright": "© {{year}} Increo AG. Alle Rechte vorbehalten."
+  },
+  "seo": {
+    "title": "Baujobs Schweiz | Gehälter 4.500+ CHF | Increo",
+    "description": "Suchen Sie einen Baujob in der Schweiz? Gehälter 4.500-7.000 CHF netto. Unterkunft und Transport kostenlos. Schweizer Arbeitsvertrag. Jetzt bewerben!"
+  }
+}

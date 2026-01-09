@@ -13,40 +13,37 @@
             <!-- Badge -->
             <div class="hero__badge">
                 <span class="hero__badge-flag">🇨🇭</span>
-                <span class="hero__badge-text">RECRUTARE OFICIALĂ PENTRU ELVEȚIA</span>
+                <span class="hero__badge-text">{{ t('hero.badge') }}</span>
             </div>
 
             <!-- Headline -->
             <h1 class="hero__title">
-                Construiește-ți <span class="hero__title-accent">viitorul</span> în Elveția
+                {{ t('hero.title') }} <span class="hero__title-accent">{{ t('hero.titleAccent') }}</span> {{ t('hero.titleEnd') }}
             </h1>
 
             <!-- Subheadline -->
-            <p class="hero__subtitle">
-                Salarii de la <strong>4,500 CHF</strong> net pe lună. Cazare și transport asigurate.
-                Contract legal elvețian cu toate beneficiile.
-            </p>
+            <p class="hero__subtitle" [innerHTML]="t('hero.subtitle')"></p>
 
             <!-- CTAs -->
             <div class="hero__ctas">
                 <a href="#aplica" class="hero__cta-primary">
-                    Aplică Acum
+                    {{ t('common.applyNow') }}
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </a>
                 <a href="#beneficii" class="hero__cta-secondary">
-                    Află Mai Multe
+                    {{ t('common.learnMore') }}
                 </a>
             </div>
 
             <!-- Stats -->
             <div class="hero__stats">
-                @for (stat of stats; track stat.label) {
+                @for (label of statsLabels; track label; let i = $index) {
                 <div class="hero__stat">
-                    <span class="hero__stat-value">{{ stat.value }}</span>
-                    <span class="hero__stat-label">{{ stat.label }}</span>
+                    <span class="hero__stat-value">{{ statsValues[i] }}</span>
+                    <span class="hero__stat-label">{{ label }}</span>
                 </div>
                 }
             </div>
@@ -57,15 +54,15 @@
             <div class="hero__visual-card">
                 <div class="hero__visual-icon">🏗️</div>
                 <div class="hero__visual-text">
-                    <span class="hero__visual-title">Job Verificat</span>
-                    <span class="hero__visual-desc">Contract elvețian</span>
+                    <span class="hero__visual-title">{{ t('hero.verifiedJob') }}</span>
+                    <span class="hero__visual-desc">{{ t('hero.swissContract') }}</span>
                 </div>
             </div>
             <div class="hero__visual-card hero__visual-card--salary">
                 <div class="hero__visual-icon">💰</div>
                 <div class="hero__visual-text">
-                    <span class="hero__visual-title">5,500 CHF/lună</span>
-                    <span class="hero__visual-desc">Salariu net mediu</span>
+                    <span class="hero__visual-title">{{ t('hero.avgSalary') }}</span>
+                    <span class="hero__visual-desc">{{ t('hero.avgSalaryDesc') }}</span>
                 </div>
             </div>
         </div>
@@ -76,6 +73,6 @@
         <div class="hero__scroll-mouse">
             <div class="hero__scroll-wheel"></div>
         </div>
-        <span class="hero__scroll-text">Scroll</span>
+        <span class="hero__scroll-text">{{ t('common.scroll') }}</span>
     </div>
 </section>

@@ -1,39 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslationService } from '../../core/services/translation.service';
 
 interface Requirement {
-    icon: string;
-    title: string;
-    description: string;
-    highlight?: string;
-    borderColor: 'red' | 'gold' | 'blue';
+  icon: string;
+  title: string;
+  description: string;
+  highlight?: string;
+  borderColor: 'red' | 'gold' | 'blue';
 }
 
 @Component({
-    selector: 'app-requirements',
-    standalone: true,
-    templateUrl: './requirements.component.html',
-    styleUrl: './requirements.component.scss'
+  selector: 'app-requirements',
+  standalone: true,
+  templateUrl: './requirements.component.html',
+  styleUrl: './requirements.component.scss',
 })
 export class RequirementsComponent {
-    readonly requirements: Requirement[] = [
-        {
-            icon: '🔧',
-            title: 'Experiență în Construcții',
-            description: 'Minim 2-3 ani experiență demonstrabilă în domeniul construcțiilor',
-            borderColor: 'red'
-        },
-        {
-            icon: '🗣️',
-            title: 'Cunoștințe Lingvistice',
-            description: 'Cel puțin nivel conversațional într-una din limbi:',
-            highlight: 'Germană, Italiană, Franceză sau Portugheză',
-            borderColor: 'gold'
-        },
-        {
-            icon: '📅',
-            title: 'Disponibilitate',
-            description: 'Angajare pe termen lung, minim 6 luni, cu posibilitate de prelungire',
-            borderColor: 'blue'
-        }
-    ];
+  private translationService = inject(TranslationService);
+
+  t(key: string): string {
+    return this.translationService.t(key);
+  }
+
+  get requirements(): Requirement[] {
+    return this.translationService.getArray('requirements.items') as Requirement[];
+  }
 }

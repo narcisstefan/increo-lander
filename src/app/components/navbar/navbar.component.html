@@ -12,14 +12,35 @@
         <nav class="navbar__nav">
             @for (link of navLinks; track link.href) {
             <a [href]="link.href" class="navbar__link" (click)="scrollToSection($event, link.href)">
-                {{ link.label }}
+                {{ getNavLabel(link.labelKey) }}
             </a>
             }
         </nav>
 
+        <!-- Language Selector -->
+        <div class="navbar__lang">
+            <button class="navbar__lang-btn" (click)="toggleLangMenu()" type="button">
+                <span class="navbar__lang-code">{{ getCurrentLanguage().code.toUpperCase() }}</span>
+                <svg class="navbar__lang-arrow" [class.open]="isLangMenuOpen()" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </button>
+            <div class="navbar__lang-dropdown" [class.open]="isLangMenuOpen()">
+                @for (lang of languages; track lang.code) {
+                <button
+                    class="navbar__lang-option"
+                    [class.active]="lang.code === getCurrentLanguage().code"
+                    (click)="switchLanguage(lang)"
+                    type="button">
+                    {{ lang.nativeName }}
+                </button>
+                }
+            </div>
+        </div>
+
         <!-- CTA Button -->
         <a href="#aplica" class="navbar__cta" (click)="scrollToSection($event, '#aplica')">
-            Aplică Acum
+            {{ t('common.applyNow') }}
         </a>
 
         <!-- Mobile Menu Button -->
@@ -36,11 +57,25 @@
         <nav class="navbar__mobile-nav">
             @for (link of navLinks; track link.href) {
             <a [href]="link.href" class="navbar__mobile-link" (click)="scrollToSection($event, link.href)">
-                {{ link.label }}
+                {{ getNavLabel(link.labelKey) }}
             </a>
             }
+
+            <!-- Mobile Language Selector -->
+            <div class="navbar__mobile-lang">
+                @for (lang of languages; track lang.code) {
+                <button
+                    class="navbar__mobile-lang-btn"
+                    [class.active]="lang.code === getCurrentLanguage().code"
+                    (click)="switchLanguage(lang)"
+                    type="button">
+                    {{ lang.code.toUpperCase() }}
+                </button>
+                }
+            </div>
+
             <a href="#aplica" class="navbar__mobile-cta" (click)="scrollToSection($event, '#aplica')">
-                Aplică Acum
+                {{ t('common.applyNow') }}
             </a>
         </nav>
     </div>

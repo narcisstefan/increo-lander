@@ -3,17 +3,13 @@
         <!-- Section Header -->
         <div class="why-switzerland__header">
             <span class="why-switzerland__flag">🇨🇭</span>
-            <h2 class="why-switzerland__title">De ce să lucrezi în Elveția?</h2>
-            <p class="why-switzerland__intro">
-                Elveția nu este doar o țară - este o oportunitate de a-ți transforma viața.
-                Cu cele mai mari salarii din Europa, condiții de muncă excelente și o calitate a vieții
-                de neegalat, Elveția este destinația ideală pentru profesioniștii din construcții.
-            </p>
+            <h2 class="why-switzerland__title">{{ t('whySwitzerland.title') }}</h2>
+            <p class="why-switzerland__intro">{{ t('whySwitzerland.intro') }}</p>
         </div>
 
         <!-- Main Benefits -->
         <div class="why-switzerland__benefits">
-            <h3 class="why-switzerland__subtitle">Ce îți oferim noi:</h3>
+            <h3 class="why-switzerland__subtitle">{{ t('whySwitzerland.benefitsTitle') }}</h3>
             <div class="why-switzerland__benefits-grid">
                 @for (benefit of mainBenefits; track benefit.title) {
                 <article class="why-card">
@@ -29,7 +25,7 @@
 
         <!-- Lifestyle Section -->
         <div class="why-switzerland__lifestyle">
-            <h3 class="why-switzerland__subtitle">Mai mult decât un job - o experiență de viață:</h3>
+            <h3 class="why-switzerland__subtitle">{{ t('whySwitzerland.lifestyleTitle') }}</h3>
             <ul class="why-switzerland__list">
                 @for (point of lifestylePoints; track point) {
                 <li class="why-switzerland__list-item">
@@ -43,11 +39,11 @@
         <!-- CTA -->
         <div class="why-switzerland__cta">
             <p class="why-switzerland__cta-text">
-                Ești gata să faci pasul către o viață mai bună?
-                <strong>Completează formularul de aplicare</strong> și te contactăm în maximum 24 de ore!
+                {{ t('whySwitzerland.ctaText') }}
+                <strong>{{ t('whySwitzerland.ctaHighlight') }}</strong> {{ t('whySwitzerland.ctaEnd') }}
             </p>
             <a href="#aplica" class="why-switzerland__cta-btn">
-                Aplică Acum
+                {{ t('common.applyNow') }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
