@@ -1,0 +1,27 @@
+<section class="requirements section" id="cerinte">
+    <div class="requirements__container">
+        <!-- Section Header -->
+        <div class="requirements__header">
+            <h2 class="requirements__title">Ce Cerințe Trebuie Să Îndeplinești?</h2>
+            <p class="requirements__subtitle">Verifică dacă te califici pentru un loc de muncă în Elveția</p>
+        </div>
+
+        <!-- Requirements Grid -->
+        <div class="requirements__grid">
+            @for (req of requirements; track req.title; let i = $index) {
+            <article class="requirement-card" [class.requirement-card--red]="req.borderColor === 'red'"
+                [class.requirement-card--gold]="req.borderColor === 'gold'"
+                [class.requirement-card--blue]="req.borderColor === 'blue'" [style.animation-delay.ms]="i * 150">
+                <div class="requirement-card__icon">{{ req.icon }}</div>
+                <h3 class="requirement-card__title">{{ req.title }}</h3>
+                <p class="requirement-card__description">
+                    {{ req.description }}
+                    @if (req.highlight) {
+                    <strong class="requirement-card__highlight">{{ req.highlight }}</strong>
+                    }
+                </p>
+            </article>
+            }
+        </div>
+    </div>
+</section>

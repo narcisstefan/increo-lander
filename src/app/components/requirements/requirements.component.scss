@@ -1,0 +1,134 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.requirements {
+    position: relative;
+    background: linear-gradient(180deg, $color-bg-medium 0%, $color-bg-dark 100%);
+
+    &__container {
+        @include container;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-12;
+
+        @include md {
+            margin-bottom: $spacing-16;
+        }
+    }
+
+    &__title {
+        @include section-title;
+    }
+
+    &__subtitle {
+        @include section-subtitle;
+    }
+
+    &__grid {
+        display: grid;
+        gap: $spacing-6;
+
+        @include md {
+            grid-template-columns: repeat(3, 1fr);
+            gap: $spacing-8;
+        }
+    }
+}
+
+.requirement-card {
+    @include glass-card;
+    padding: $spacing-8;
+    text-align: center;
+    border-width: 2px;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    @include lg {
+        padding: $spacing-10;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+    }
+
+    // Color variants
+    &--red {
+        border-color: rgba($color-primary, 0.5);
+
+        &:hover {
+            box-shadow: 0 8px 32px rgba($color-primary, 0.2);
+        }
+
+        .requirement-card__icon {
+            background: rgba($color-primary, 0.15);
+        }
+    }
+
+    &--gold {
+        border-color: rgba($color-accent, 0.5);
+
+        &:hover {
+            box-shadow: 0 8px 32px rgba($color-accent, 0.2);
+        }
+
+        .requirement-card__icon {
+            background: rgba($color-accent, 0.15);
+        }
+    }
+
+    &--blue {
+        border-color: rgba(#3498db, 0.5);
+
+        &:hover {
+            box-shadow: 0 8px 32px rgba(#3498db, 0.2);
+        }
+
+        .requirement-card__icon {
+            background: rgba(#3498db, 0.15);
+        }
+    }
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        @include flex-center;
+        font-size: 2.5rem;
+        margin: 0 auto $spacing-6;
+        transition: transform $transition-spring;
+
+        .requirement-card:hover & {
+            transform: scale(1.1);
+        }
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        margin-bottom: $spacing-4;
+
+        @include md {
+            font-size: $font-size-2xl;
+        }
+    }
+
+    &__description {
+        font-size: $font-size-base;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+
+        @include md {
+            font-size: $font-size-lg;
+        }
+    }
+
+    &__highlight {
+        display: block;
+        color: $color-accent;
+        font-weight: $font-weight-bold;
+        margin-top: $spacing-2;
+    }
+}

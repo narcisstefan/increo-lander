@@ -1,0 +1,43 @@
+<section class="team section" id="echipa">
+    <div class="team__container">
+        <!-- Section Header -->
+        <div class="team__header">
+            <h2 class="team__title">Contactează-ne Direct</h2>
+            <p class="team__subtitle">
+                Echipa noastră dedicată este aici pentru a-ți răspunde la orice întrebare.
+                Nu ezita să ne contactezi direct pentru detalii despre oportunitățile disponibile.
+            </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="team__grid">
+            @for (member of teamMembers; track member.email) {
+            <article class="team-card">
+                <div class="team-card__image-container">
+                    <img [src]="member.image" [alt]="member.name" class="team-card__image" loading="lazy">
+                </div>
+                <div class="team-card__content">
+                    <h3 class="team-card__name">{{ member.name }}</h3>
+                    <span class="team-card__role">{{ member.role }}</span>
+
+                    <div class="team-card__contact">
+                        <a [href]="'mailto:' + member.email" class="team-card__email">
+                            <span class="team-card__icon">✉️</span>
+                            {{ member.email }}
+                        </a>
+                        <a [href]="'tel:' + member.phone.replace(' ', '')" class="team-card__phone">
+                            <span class="team-card__icon">📞</span>
+                            {{ member.phone }}
+                        </a>
+                    </div>
+                </div>
+            </article>
+            }
+        </div>
+
+        <!-- Call to action text -->
+        <p class="team__cta-text">
+            Sau completează formularul de mai sus și te contactăm noi în maximum 24 de ore!
+        </p>
+    </div>
+</section>

@@ -1,0 +1,145 @@
+<section class="application-form section" id="aplica">
+    <div class="application-form__container">
+        <!-- Section Header -->
+        <div class="application-form__header">
+            <h2 class="application-form__title">Aplică Acum</h2>
+            <p class="application-form__subtitle">Completează formularul și te vom contacta în 24 de ore</p>
+        </div>
+
+        @if (isSubmitted()) {
+        <!-- Success State -->
+        <div class="application-form__success">
+            <div class="application-form__success-icon">✅</div>
+            <h3 class="application-form__success-title">Aplicație Trimisă cu Succes!</h3>
+            <p class="application-form__success-text">
+                Mulțumim pentru interes! Te vom contacta în maximum 24 de ore pentru a discuta despre oportunitățile
+                disponibile.
+            </p>
+            <button type="button" class="application-form__reset-btn" (click)="resetForm()">
+                Trimite o Nouă Aplicație
+            </button>
+        </div>
+        } @else {
+        <!-- Form -->
+        <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form__grid">
+                <!-- Full Name -->
+                <div class="form__field form__field--full">
+                    <label class="form__label" for="fullName">Nume Complet *</label>
+                    <input type="text" id="fullName" class="form__input"
+                        [class.error]="form.get('fullName')?.invalid && form.get('fullName')?.touched"
+                        formControlName="fullName" placeholder="Ex: Ion Popescu">
+                    @if (form.get('fullName')?.invalid && form.get('fullName')?.touched) {
+                    <span class="form__error">Numele este obligatoriu (min. 3 caractere)</span>
+                    }
+                </div>
+
+                <!-- Email -->
+                <div class="form__field">
+                    <label class="form__label" for="email">Email *</label>
+                    <input type="email" id="email" class="form__input"
+                        [class.error]="form.get('email')?.invalid && form.get('email')?.touched" formControlName="email"
+                        placeholder="email@exemplu.com">
+                    @if (form.get('email')?.invalid && form.get('email')?.touched) {
+                    <span class="form__error">Adresă de email validă este obligatorie</span>
+                    }
+                </div>
+
+                <!-- Phone -->
+                <div class="form__field">
+                    <label class="form__label" for="phone">Telefon (WhatsApp) *</label>
+                    <input type="tel" id="phone" class="form__input"
+                        [class.error]="form.get('phone')?.invalid && form.get('phone')?.touched" formControlName="phone"
+                        placeholder="+40 7XX XXX XXX">
+                    @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+                    <span class="form__error">Număr de telefon valid este obligatoriu</span>
+                    }
+                </div>
+
+                <!-- Profession -->
+                <div class="form__field">
+                    <label class="form__label" for="profession">Meseria Principală *</label>
+                    <select id="profession" class="form__select"
+                        [class.error]="form.get('profession')?.invalid && form.get('profession')?.touched"
+                        formControlName="profession">
+                        <option value="" disabled>Selectează meseria</option>
+                        @for (profession of professions; track profession) {
+                        <option [value]="profession">{{ profession }}</option>
+                        }
+                    </select>
+                    @if (form.get('profession')?.invalid && form.get('profession')?.touched) {
+                    <span class="form__error">Selectează meseria ta</span>
+                    }
+                </div>
+
+                <!-- Experience -->
+                <div class="form__field">
+                    <label class="form__label" for="experience">Ani de Experiență *</label>
+                    <select id="experience" class="form__select"
+                        [class.error]="form.get('experience')?.invalid && form.get('experience')?.touched"
+                        formControlName="experience">
+                        <option value="" disabled>Selectează experiența</option>
+                        @for (exp of experienceOptions; track exp) {
+                        <option [value]="exp">{{ exp }}</option>
+                        }
+                    </select>
+                    @if (form.get('experience')?.invalid && form.get('experience')?.touched) {
+                    <span class="form__error">Selectează experiența ta</span>
+                    }
+                </div>
+
+                <!-- Languages -->
+                <div class="form__field form__field--full">
+                    <label class="form__label">Limbi Străine Cunoscute *</label>
+                    <div class="form__checkboxes">
+                        @for (lang of languages; track lang.id) {
+                        <label class="form__checkbox">
+                            <input type="checkbox" [formControlName]="lang.id" class="form__checkbox-input">
+                            <span class="form__checkbox-custom"></span>
+                            <span class="form__checkbox-label">{{ lang.label }}</span>
+                        </label>
+                        }
+                    </div>
+                    @if (!hasLanguageSelected && form.touched) {
+                    <span class="form__error">Selectează cel puțin o limbă străină</span>
+                    }
+                </div>
+
+                <!-- CV Upload -->
+                <div class="form__field form__field--full">
+                    <label class="form__label">Încarcă CV (PDF, DOC) - opțional</label>
+                    <div class="form__upload" [class.has-file]="fileName()">
+                        @if (fileName()) {
+                        <div class="form__upload-file">
+                            <span class="form__upload-filename">📄 {{ fileName() }}</span>
+                            <button type="button" class="form__upload-remove" (click)="removeFile()">✕</button>
+                        </div>
+                        } @else {
+                        <label class="form__upload-label" for="cv">
+                            <span class="form__upload-icon">📄</span>
+                            <span class="form__upload-text">Drag & drop sau click pentru a încărca</span>
+                        </label>
+                        <input type="file" id="cv" class="form__upload-input" accept=".pdf,.doc,.docx"
+                            (change)="onFileSelected($event)">
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="form__submit" [disabled]="isSubmitting()">
+                @if (isSubmitting()) {
+                <span class="form__submit-spinner"></span>
+                Se trimite...
+                } @else {
+                Trimite Aplicația
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+                }
+            </button>
+        </form>
+        }
+    </div>
+</section>

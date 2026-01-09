@@ -1,0 +1,81 @@
+<section class="hero" id="hero">
+    <!-- Background decorations -->
+    <div class="hero__bg">
+        <div class="hero__orb hero__orb--primary"></div>
+        <div class="hero__orb hero__orb--accent"></div>
+        <div class="hero__swiss-flag" aria-hidden="true">
+            <span class="hero__swiss-flag-cross"></span>
+        </div>
+    </div>
+
+    <div class="hero__container">
+        <div class="hero__content">
+            <!-- Badge -->
+            <div class="hero__badge">
+                <span class="hero__badge-flag">🇨🇭</span>
+                <span class="hero__badge-text">RECRUTARE OFICIALĂ PENTRU ELVEȚIA</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="hero__title">
+                Construiește-ți <span class="hero__title-accent">viitorul</span> în Elveția
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="hero__subtitle">
+                Salarii de la <strong>4,500 CHF</strong> net pe lună. Cazare și transport asigurate.
+                Contract legal elvețian cu toate beneficiile.
+            </p>
+
+            <!-- CTAs -->
+            <div class="hero__ctas">
+                <a href="#aplica" class="hero__cta-primary">
+                    Aplică Acum
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#beneficii" class="hero__cta-secondary">
+                    Află Mai Multe
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero__stats">
+                @for (stat of stats; track stat.label) {
+                <div class="hero__stat">
+                    <span class="hero__stat-value">{{ stat.value }}</span>
+                    <span class="hero__stat-label">{{ stat.label }}</span>
+                </div>
+                }
+            </div>
+        </div>
+
+        <!-- Decorative side -->
+        <div class="hero__visual" aria-hidden="true">
+            <div class="hero__visual-card">
+                <div class="hero__visual-icon">🏗️</div>
+                <div class="hero__visual-text">
+                    <span class="hero__visual-title">Job Verificat</span>
+                    <span class="hero__visual-desc">Contract elvețian</span>
+                </div>
+            </div>
+            <div class="hero__visual-card hero__visual-card--salary">
+                <div class="hero__visual-icon">💰</div>
+                <div class="hero__visual-text">
+                    <span class="hero__visual-title">5,500 CHF/lună</span>
+                    <span class="hero__visual-desc">Salariu net mediu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll-indicator">
+        <div class="hero__scroll-mouse">
+            <div class="hero__scroll-wheel"></div>
+        </div>
+        <span class="hero__scroll-text">Scroll</span>
+    </div>
+</section>

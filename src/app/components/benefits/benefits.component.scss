@@ -1,0 +1,82 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.benefits {
+    position: relative;
+    background: linear-gradient(180deg, $color-bg-dark 0%, $color-bg-medium 100%);
+
+    &__container {
+        @include container;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-12;
+
+        @include md {
+            margin-bottom: $spacing-16;
+        }
+    }
+
+    &__title {
+        @include section-title;
+    }
+
+    &__subtitle {
+        @include section-subtitle;
+    }
+
+    &__grid {
+        display: grid;
+        gap: $spacing-6;
+
+        @include sm {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include lg {
+            grid-template-columns: repeat(3, 1fr);
+            gap: $spacing-8;
+        }
+    }
+}
+
+.benefit-card {
+    @include glass-card;
+    @include glass-card-hover;
+    padding: $spacing-8;
+    text-align: center;
+
+    @include lg {
+        padding: $spacing-10;
+    }
+
+    &__icon {
+        font-size: 3rem;
+        margin-bottom: $spacing-4;
+        display: inline-block;
+        transition: transform $transition-spring;
+
+        .benefit-card:hover & {
+            transform: scale(1.2) rotate(5deg);
+        }
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        margin-bottom: $spacing-3;
+
+        @include md {
+            font-size: $font-size-2xl;
+        }
+    }
+
+    &__description {
+        font-size: $font-size-base;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+    }
+}

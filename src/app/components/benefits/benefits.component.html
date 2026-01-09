@@ -1,0 +1,20 @@
+<section class="benefits section" id="beneficii">
+    <div class="benefits__container">
+        <!-- Section Header -->
+        <div class="benefits__header">
+            <h2 class="benefits__title">De ce să lucrezi în Elveția?</h2>
+            <p class="benefits__subtitle">Beneficii care îți vor schimba viața profesională și financiară</p>
+        </div>
+
+        <!-- Benefits Grid -->
+        <div class="benefits__grid">
+            @for (benefit of benefits; track benefit.title; let i = $index) {
+            <article class="benefit-card" [style.animation-delay.ms]="i * 100">
+                <div class="benefit-card__icon">{{ benefit.icon }}</div>
+                <h3 class="benefit-card__title">{{ benefit.title }}</h3>
+                <p class="benefit-card__description">{{ benefit.description }}</p>
+            </article>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,380 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: $spacing-24 0 $spacing-16;
+    overflow: hidden;
+
+    @include md {
+        padding: $spacing-16 0;
+    }
+
+    // Background
+    &__bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    &__orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.3;
+
+        &--primary {
+            width: 600px;
+            height: 600px;
+            background: $color-primary;
+            top: -200px;
+            right: -200px;
+
+            @include lg {
+                width: 800px;
+                height: 800px;
+            }
+        }
+
+        &--accent {
+            width: 400px;
+            height: 400px;
+            background: $color-accent;
+            bottom: -100px;
+            left: -100px;
+            opacity: 0.2;
+        }
+    }
+
+    &__swiss-flag {
+        position: absolute;
+        right: 10%;
+        top: 30%;
+        width: 120px;
+        height: 120px;
+        background: rgba($color-swiss-red, 0.15);
+        border-radius: $radius-lg;
+        animation: float 8s ease-in-out infinite;
+
+        @include lg {
+            width: 180px;
+            height: 180px;
+        }
+
+        &-cross {
+            position: absolute;
+            inset: 0;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                background: rgba($color-swiss-white, 0.3);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &::before {
+                width: 20%;
+                height: 60%;
+            }
+
+            &::after {
+                width: 60%;
+                height: 20%;
+            }
+        }
+    }
+
+    // Container
+    &__container {
+        @include container;
+        display: grid;
+        gap: $spacing-12;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+            gap: $spacing-16;
+        }
+    }
+
+    // Content
+    &__content {
+        text-align: center;
+
+        @include lg {
+            text-align: left;
+        }
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-2;
+        padding: $spacing-2 $spacing-4;
+        background: rgba($color-primary, 0.15);
+        border: 1px solid rgba($color-primary, 0.3);
+        border-radius: $radius-full;
+        margin-bottom: $spacing-6;
+        animation: fadeInDown 0.6s ease forwards;
+
+        &-flag {
+            font-size: $font-size-lg;
+        }
+
+        &-text {
+            font-size: $font-size-xs;
+            font-weight: $font-weight-semibold;
+            color: $color-primary;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-tight;
+        margin-bottom: $spacing-6;
+        animation: fadeInUp 0.6s ease forwards;
+        animation-delay: 100ms;
+        opacity: 0;
+
+        @include md {
+            font-size: $font-size-5xl;
+        }
+
+        @include lg {
+            font-size: $font-size-6xl;
+        }
+
+        @include xl {
+            font-size: $font-size-7xl;
+        }
+
+        &-accent {
+            @include text-gradient($color-primary, $color-accent);
+        }
+    }
+
+    &__subtitle {
+        font-size: $font-size-lg;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+        max-width: 540px;
+        margin-bottom: $spacing-8;
+        margin-inline: auto;
+        animation: fadeInUp 0.6s ease forwards;
+        animation-delay: 200ms;
+        opacity: 0;
+
+        strong {
+            color: $color-accent;
+            font-weight: $font-weight-bold;
+        }
+
+        @include lg {
+            font-size: $font-size-xl;
+            margin-inline: 0;
+        }
+    }
+
+    // CTAs
+    &__ctas {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+        margin-bottom: $spacing-12;
+        animation: fadeInUp 0.6s ease forwards;
+        animation-delay: 300ms;
+        opacity: 0;
+
+        @include sm {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        @include lg {
+            justify-content: flex-start;
+        }
+    }
+
+    &__cta-primary {
+        @include button-primary;
+        padding: $spacing-4 $spacing-8;
+        font-size: $font-size-lg;
+
+        svg {
+            transition: transform $transition-base;
+        }
+
+        &:hover svg {
+            transform: translateX(4px);
+        }
+    }
+
+    &__cta-secondary {
+        @include button-outline;
+        padding: $spacing-4 $spacing-8;
+        font-size: $font-size-lg;
+    }
+
+    // Stats
+    &__stats {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-8;
+        animation: fadeInUp 0.6s ease forwards;
+        animation-delay: 400ms;
+        opacity: 0;
+
+        @include lg {
+            justify-content: flex-start;
+        }
+
+        @include md {
+            gap: $spacing-12;
+        }
+    }
+
+    &__stat {
+        text-align: center;
+
+        @include lg {
+            text-align: left;
+        }
+
+        &-value {
+            display: block;
+            font-family: $font-display;
+            font-size: $font-size-3xl;
+            font-weight: $font-weight-bold;
+            color: $color-text-primary;
+
+            @include md {
+                font-size: $font-size-4xl;
+            }
+        }
+
+        &-label {
+            font-size: $font-size-sm;
+            color: $color-text-muted;
+
+            @include md {
+                font-size: $font-size-base;
+            }
+        }
+    }
+
+    // Visual side
+    &__visual {
+        display: none;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        gap: $spacing-6;
+
+        @include lg {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__visual-card {
+        @include glass-card;
+        display: flex;
+        align-items: center;
+        gap: $spacing-4;
+        padding: $spacing-5 $spacing-6;
+        animation: fadeInRight 0.6s ease forwards;
+        animation-delay: 500ms;
+        opacity: 0;
+
+        &--salary {
+            animation-delay: 600ms;
+            margin-left: $spacing-12;
+        }
+    }
+
+    &__visual-icon {
+        font-size: $font-size-3xl;
+    }
+
+    &__visual-text {
+        @include flex-col;
+        gap: $spacing-1;
+    }
+
+    &__visual-title {
+        font-weight: $font-weight-semibold;
+        color: $color-text-primary;
+    }
+
+    &__visual-desc {
+        font-size: $font-size-sm;
+        color: $color-text-muted;
+    }
+
+    // Scroll indicator
+    &__scroll-indicator {
+        position: absolute;
+        bottom: $spacing-8;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-2;
+        animation: fadeIn 1s ease forwards;
+        animation-delay: 1s;
+        opacity: 0;
+    }
+
+    &__scroll-mouse {
+        width: 24px;
+        height: 40px;
+        border: 2px solid $color-border-hover;
+        border-radius: 12px;
+        position: relative;
+    }
+
+    &__scroll-wheel {
+        width: 4px;
+        height: 8px;
+        background: $color-text-muted;
+        border-radius: 2px;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    &__scroll-text {
+        font-size: $font-size-xs;
+        color: $color-text-muted;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}

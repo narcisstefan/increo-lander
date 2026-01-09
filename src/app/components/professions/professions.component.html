@@ -1,0 +1,22 @@
+<section class="professions section" id="meserii">
+    <div class="professions__container">
+        <!-- Section Header -->
+        <div class="professions__header">
+            <h2 class="professions__title">Meserii Căutate</h2>
+            <p class="professions__subtitle">Selectează domeniul tău de expertiză și vezi oferta salarială</p>
+        </div>
+
+        <!-- Professions Grid -->
+        <div class="professions__grid">
+            @for (profession of professions; track profession.title; let i = $index) {
+            <article class="profession-card" [style.animation-delay.ms]="i * 75">
+                <div class="profession-card__icon">{{ profession.icon }}</div>
+                <div class="profession-card__content">
+                    <h3 class="profession-card__title">{{ profession.title }}</h3>
+                    <span class="profession-card__salary">{{ profession.salary }}</span>
+                </div>
+            </article>
+            }
+        </div>
+    </div>
+</section>

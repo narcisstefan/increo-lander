@@ -1,0 +1,230 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.why-switzerland {
+    position: relative;
+    background: linear-gradient(180deg, $color-bg-medium 0%, $color-bg-light 50%, $color-bg-medium 100%);
+    overflow: hidden;
+
+    // Decorative gradient orb
+    &::before {
+        content: '';
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba($color-primary, 0.15), transparent 70%);
+        top: -200px;
+        left: -200px;
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    &__container {
+        @include container;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-12;
+    }
+
+    &__flag {
+        display: inline-block;
+        font-size: 4rem;
+        margin-bottom: $spacing-4;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    &__title {
+        @include section-title;
+        margin-bottom: $spacing-6;
+    }
+
+    &__intro {
+        font-size: $font-size-lg;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+        max-width: 800px;
+        margin: 0 auto;
+
+        @include md {
+            font-size: $font-size-xl;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-display;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        margin-bottom: $spacing-8;
+        text-align: center;
+
+        @include md {
+            font-size: $font-size-3xl;
+        }
+    }
+
+    // Benefits section
+    &__benefits {
+        margin-bottom: $spacing-16;
+    }
+
+    &__benefits-grid {
+        display: grid;
+        gap: $spacing-6;
+
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    // Lifestyle section
+    &__lifestyle {
+        @include glass-card;
+        padding: $spacing-8;
+        margin-bottom: $spacing-12;
+
+        @include md {
+            padding: $spacing-12;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+    }
+
+    &__list-item {
+        display: flex;
+        align-items: flex-start;
+        gap: $spacing-3;
+        font-size: $font-size-base;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+
+        @include md {
+            font-size: $font-size-lg;
+        }
+    }
+
+    &__check {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background: rgba($color-success, 0.2);
+        color: $color-success;
+        border-radius: 50%;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+    }
+
+    // CTA section
+    &__cta {
+        text-align: center;
+    }
+
+    &__cta-text {
+        font-size: $font-size-lg;
+        color: $color-text-secondary;
+        margin-bottom: $spacing-6;
+        max-width: 600px;
+        margin-inline: auto;
+
+        @include md {
+            font-size: $font-size-xl;
+        }
+
+        strong {
+            color: $color-accent;
+        }
+    }
+
+    &__cta-btn {
+        @include button-primary;
+        padding: $spacing-4 $spacing-8;
+        font-size: $font-size-lg;
+
+        svg {
+            transition: transform $transition-base;
+        }
+
+        &:hover svg {
+            transform: translateX(4px);
+        }
+    }
+}
+
+// Why card component
+.why-card {
+    @include glass-card;
+    @include glass-card-hover;
+    display: flex;
+    gap: $spacing-5;
+    padding: $spacing-6;
+
+    @include md {
+        padding: $spacing-8;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        @include flex-center;
+        font-size: 2rem;
+        background: rgba($color-primary, 0.1);
+        border-radius: $radius-lg;
+        transition: transform $transition-spring;
+
+        @include md {
+            width: 80px;
+            height: 80px;
+            font-size: 2.5rem;
+        }
+
+        .why-card:hover & {
+            transform: scale(1.1) rotate(5deg);
+        }
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        margin-bottom: $spacing-2;
+
+        @include md {
+            font-size: $font-size-xl;
+        }
+    }
+
+    &__description {
+        font-size: $font-size-base;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}

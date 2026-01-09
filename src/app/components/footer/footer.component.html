@@ -1,0 +1,71 @@
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__grid">
+            <!-- Column 1: Logo & Description -->
+            <div class="footer__col footer__col--brand">
+                <a href="#" class="footer__logo">
+                    <svg class="footer__logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.47 54.66">
+                        <path
+                            d="M0,1.33h11.4v16.31H3.34l8.06,13.13v22.57H0V1.33ZM51.12,0c-6.64,0-12.28,2.1-16.82,5.97V1.33h-11.51v52.01h11.51V18.26c4.09-5.09,9.52-7.86,14.5-7.86,8.41,0,13.5,5.09,13.5,14.61v28.33h11.51v-28.99c0-15.05-9.18-24.34-22.68-24.34ZM148.92,1.33h-11.51v52.01h11.51V20.58c4.65-6.09,10.96-9.18,19.25-9.51V.22c-7.97,0-14.5,2.99-19.25,8.19V1.33ZM106.95,44.26c-9.63,0-15.94-7.52-15.94-16.93s6.31-16.93,15.94-16.93c5.87,0,10.45,2.84,12.62,7.23h12.14c-2.89-10.52-12.68-17.63-24.76-17.63-15.6,0-27.44,11.95-27.44,27.33s11.84,27.33,27.44,27.33c12.08,0,21.87-7.11,24.76-17.63h-12.14c-2.17,4.39-6.75,7.23-12.62,7.23ZM283.47,27.33c0,15.93-11.51,27.33-27.66,27.33s-27.66-11.4-27.66-27.33S239.65,0,255.8,0s27.66,11.4,27.66,27.33ZM271.96,27.33c0-9.85-6.75-16.93-16.16-16.93s-16.16,7.08-16.16,16.93,6.75,16.93,16.16,16.93,16.16-7.19,16.16-16.93ZM222.15,30.76h-40.83c1.09,7.85,6.09,13.83,15.82,13.83,6.79,0,10.84-4.22,12.16-7.56h11.49c-3.1,9.84-12.47,17.63-23.75,17.63-16.38,0-27.44-11.84-27.44-27.33S180.55,0,196.37,0c17.26,0,27.99,13.17,25.78,30.76ZM210.76,22.8c-.66-8.52-6.2-13.06-14.27-13.06-9.35,0-14.14,6.88-14.94,13.06h29.21Z" />
+                    </svg>
+                </a>
+                <p class="footer__description">
+                    Agenție de recrutare profesională pentru domeniul construcțiilor în Elveția.
+                    Conectăm talente românești cu cele mai bune oportunități de carieră elvețiene.
+                </p>
+            </div>
+
+            <!-- Column 2: Contact -->
+            <div class="footer__col">
+                <h4 class="footer__col-title">Contact</h4>
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <span class="footer__list-icon">📍</span>
+                        <span>6340 Baar, Elveția</span>
+                    </li>
+                    <li class="footer__list-item">
+                        <span class="footer__list-icon">📞</span>
+                        <a href="tel:+41415529000">+41 41 552 90 00</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <span class="footer__list-icon">✉️</span>
+                        <a href="mailto:info@increo.swiss">info&#64;increo.swiss</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Quick Links -->
+            <div class="footer__col">
+                <h4 class="footer__col-title">Link-uri Rapide</h4>
+                <ul class="footer__list">
+                    @for (link of quickLinks; track link.href) {
+                    <li class="footer__list-item">
+                        <a [href]="link.href" (click)="scrollToSection($event, link.href)">
+                            {{ link.label }}
+                        </a>
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Column 4: Legal -->
+            <div class="footer__col">
+                <h4 class="footer__col-title">Legal</h4>
+                <ul class="footer__list">
+                    @for (link of legalLinks; track link.label) {
+                    <li class="footer__list-item">
+                        <a [href]="link.href">{{ link.label }}</a>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                © {{ currentYear }} Increo AG. Toate drepturile rezervate.
+            </p>
+        </div>
+    </div>
+</footer>
