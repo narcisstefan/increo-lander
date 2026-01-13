@@ -3,9 +3,8 @@
     <div class="hero__bg">
         <div class="hero__orb hero__orb--primary"></div>
         <div class="hero__orb hero__orb--accent"></div>
-        <div class="hero__swiss-flag" aria-hidden="true">
-            <span class="hero__swiss-flag-cross"></span>
-        </div>
+        <!-- Swiss Flag (Reverted to Stable Image) -->
+        <img src="assets/images/swiss-flag.svg" alt="Steagul Elveției" class="hero__swiss-flag" aria-hidden="true">
     </div>
 
     <div class="hero__container">
@@ -18,7 +17,8 @@
 
             <!-- Headline -->
             <h1 class="hero__title">
-                {{ t('hero.title') }} <span class="hero__title-accent">{{ t('hero.titleAccent') }}</span> {{ t('hero.titleEnd') }}
+                {{ t('hero.title') }} <span class="hero__title-accent">{{ t('hero.titleAccent') }}</span> {{
+                t('hero.titleEnd') }}
             </h1>
 
             <!-- Subheadline -->

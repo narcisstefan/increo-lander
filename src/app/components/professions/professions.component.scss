@@ -94,7 +94,7 @@
     &__salary {
         font-size: $font-size-xs;
         font-weight: $font-weight-bold;
-        color: $color-accent;
+        color: #ffd700; // Gold for salary visibility against dark bg
 
         @include md {
             font-size: $font-size-sm;

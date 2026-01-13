@@ -120,7 +120,7 @@
 @mixin button-primary {
     @include button-base;
     background: linear-gradient(135deg, $color-primary, $color-primary-dark);
-    color: $color-text-primary;
+    color: $color-bg-dark;
     box-shadow: $shadow-md, $shadow-glow-primary;
 
     &:hover:not(:disabled) {
