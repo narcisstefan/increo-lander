@@ -1,63 +1,74 @@
-<section class="application-form section" id="aplica">
-    <div class="application-form__container">
+<section class="relative w-full py-24 px-6 bg-gray-200" id="aplica">
+    <div class="max-w-3xl mx-auto relative z-10">
         <!-- Section Header -->
-        <div class="application-form__header">
-            <h2 class="application-form__title">{{ t('form.title') }}</h2>
-            <p class="application-form__subtitle">{{ t('form.subtitle') }}</p>
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-text-main mb-3">{{ t('form.title') }}</h2>
+            <p class="text-text-muted">{{ t('form.subtitle') }}</p>
         </div>
 
         @if (isSubmitted()) {
         <!-- Success State -->
-        <div class="application-form__success">
-            <div class="application-form__success-icon">✅</div>
-            <h3 class="application-form__success-title">{{ t('form.success.title') }}</h3>
-            <p class="application-form__success-text">{{ t('form.success.message') }}</p>
-            <button type="button" class="application-form__reset-btn" (click)="resetForm()">
+        <div class="bg-white rounded-xl p-12 text-center shadow-2xl border-t-4 border-primary">
+            <div class="text-6xl mb-6">✅</div>
+            <h3 class="text-2xl md:text-3xl font-bold text-green-600 mb-4">{{ t('form.success.title') }}</h3>
+            <p class="text-lg text-text-muted max-w-md mx-auto mb-8">{{ t('form.success.message') }}</p>
+            <button type="button"
+                class="px-6 py-3 border-2 border-gray-200 bg-white text-text-main font-bold rounded-md hover:border-primary hover:text-primary transition-all"
+                (click)="resetForm()">
                 {{ t('common.resetForm') }}
             </button>
         </div>
         } @else {
         <!-- Form -->
-        <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="form__grid">
+        <form class="bg-white rounded-xl shadow-2xl p-8 md:p-12 border-t-4 border-primary" [formGroup]="form"
+            (ngSubmit)="onSubmit()">
+            <div class="grid gap-6 md:grid-cols-2">
                 <!-- Full Name -->
-                <div class="form__field form__field--full">
-                    <label class="form__label" for="fullName">{{ t('form.fields.fullName') }} *</label>
-                    <input type="text" id="fullName" class="form__input"
-                        [class.error]="form.get('fullName')?.invalid && form.get('fullName')?.touched"
+                <div class="flex flex-col gap-2 md:col-span-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider" for="fullName">{{
+                        t('form.fields.fullName') }} *</label>
+                    <input type="text" id="fullName"
+                        class="w-full px-3 py-3 rounded-lg border border-gray-200 bg-surface-light text-text-main text-base shadow-sm transition-all focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10"
+                        [class.border-red-500]="form.get('fullName')?.invalid && form.get('fullName')?.touched"
                         formControlName="fullName" [placeholder]="t('form.fields.fullNamePlaceholder')">
                     @if (form.get('fullName')?.invalid && form.get('fullName')?.touched) {
-                    <span class="form__error">{{ t('form.errors.fullNameRequired') }}</span>
+                    <span class="text-sm text-red-500">{{ t('form.errors.fullNameRequired') }}</span>
                     }
                 </div>
 
                 <!-- Email -->
-                <div class="form__field">
-                    <label class="form__label" for="email">{{ t('form.fields.email') }} *</label>
-                    <input type="email" id="email" class="form__input"
-                        [class.error]="form.get('email')?.invalid && form.get('email')?.touched" formControlName="email"
-                        [placeholder]="t('form.fields.emailPlaceholder')">
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider" for="email">{{
+                        t('form.fields.email') }} *</label>
+                    <input type="email" id="email"
+                        class="w-full px-3 py-3 rounded-lg border border-gray-200 bg-surface-light text-text-main text-base shadow-sm transition-all focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10"
+                        [class.border-red-500]="form.get('email')?.invalid && form.get('email')?.touched"
+                        formControlName="email" [placeholder]="t('form.fields.emailPlaceholder')">
                     @if (form.get('email')?.invalid && form.get('email')?.touched) {
-                    <span class="form__error">{{ t('form.errors.emailRequired') }}</span>
+                    <span class="text-sm text-red-500">{{ t('form.errors.emailRequired') }}</span>
                     }
                 </div>
 
                 <!-- Phone -->
-                <div class="form__field">
-                    <label class="form__label" for="phone">{{ t('form.fields.phone') }} *</label>
-                    <input type="tel" id="phone" class="form__input"
-                        [class.error]="form.get('phone')?.invalid && form.get('phone')?.touched" formControlName="phone"
-                        [placeholder]="t('form.fields.phonePlaceholder')">
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider" for="phone">{{
+                        t('form.fields.phone') }} *</label>
+                    <input type="tel" id="phone"
+                        class="w-full px-3 py-3 rounded-lg border border-gray-200 bg-surface-light text-text-main text-base shadow-sm transition-all focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10"
+                        [class.border-red-500]="form.get('phone')?.invalid && form.get('phone')?.touched"
+                        formControlName="phone" [placeholder]="t('form.fields.phonePlaceholder')">
                     @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
-                    <span class="form__error">{{ t('form.errors.phoneRequired') }}</span>
+                    <span class="text-sm text-red-500">{{ t('form.errors.phoneRequired') }}</span>
                     }
                 </div>
 
                 <!-- Profession -->
-                <div class="form__field">
-                    <label class="form__label" for="profession">{{ t('form.fields.profession') }} *</label>
-                    <select id="profession" class="form__select"
-                        [class.error]="form.get('profession')?.invalid && form.get('profession')?.touched"
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider" for="profession">{{
+                        t('form.fields.profession') }} *</label>
+                    <select id="profession"
+                        class="w-full px-3 py-3 rounded-lg border border-gray-200 bg-surface-light text-text-main text-base shadow-sm transition-all focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 appearance-none cursor-pointer pr-12 bg-no-repeat bg-right"
+                        [class.border-red-500]="form.get('profession')?.invalid && form.get('profession')?.touched"
                         formControlName="profession">
                         <option value="" disabled>{{ t('form.fields.professionPlaceholder') }}</option>
                         @for (profession of professions; track profession) {
@@ -65,15 +76,17 @@
                         }
                     </select>
                     @if (form.get('profession')?.invalid && form.get('profession')?.touched) {
-                    <span class="form__error">{{ t('form.errors.professionRequired') }}</span>
+                    <span class="text-sm text-red-500">{{ t('form.errors.professionRequired') }}</span>
                     }
                 </div>
 
                 <!-- Experience -->
-                <div class="form__field">
-                    <label class="form__label" for="experience">{{ t('form.fields.experience') }} *</label>
-                    <select id="experience" class="form__select"
-                        [class.error]="form.get('experience')?.invalid && form.get('experience')?.touched"
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider" for="experience">{{
+                        t('form.fields.experience') }} *</label>
+                    <select id="experience"
+                        class="w-full px-3 py-3 rounded-lg border border-gray-200 bg-surface-light text-text-main text-base shadow-sm transition-all focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 appearance-none cursor-pointer pr-12 bg-no-repeat bg-right"
+                        [class.border-red-500]="form.get('experience')?.invalid && form.get('experience')?.touched"
                         formControlName="experience">
                         <option value="" disabled>{{ t('form.fields.experiencePlaceholder') }}</option>
                         @for (exp of experienceOptions; track exp) {
@@ -81,42 +94,50 @@
                         }
                     </select>
                     @if (form.get('experience')?.invalid && form.get('experience')?.touched) {
-                    <span class="form__error">{{ t('form.errors.experienceRequired') }}</span>
+                    <span class="text-sm text-red-500">{{ t('form.errors.experienceRequired') }}</span>
                     }
                 </div>
 
                 <!-- Languages -->
-                <div class="form__field form__field--full">
-                    <label class="form__label">{{ t('form.fields.languages') }} *</label>
-                    <div class="form__checkboxes">
+                <div class="flex flex-col gap-2 md:col-span-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider">{{
+                        t('form.fields.languages') }} *</label>
+                    <div class="flex flex-wrap gap-4">
                         @for (lang of languages; track lang.id) {
-                        <label class="form__checkbox">
-                            <input type="checkbox" [formControlName]="lang.id" class="form__checkbox-input">
-                            <span class="form__checkbox-custom"></span>
-                            <span class="form__checkbox-label">{{ lang.label }}</span>
+                        <label class="flex items-center gap-3 cursor-pointer select-none group">
+                            <input type="checkbox" [formControlName]="lang.id" class="sr-only peer">
+                            <span
+                                class="w-5 h-5 border border-gray-200 rounded-sm relative transition-all peer-checked:bg-primary peer-checked:border-primary peer-focus-visible:ring-2 peer-focus-visible:ring-primary/50 group-hover:border-primary flex items-center justify-center text-white text-xs font-bold peer-checked:after:content-['✓']"></span>
+                            <span class="text-base text-text-muted group-hover:text-primary transition-colors">{{
+                                lang.label }}</span>
                         </label>
                         }
                     </div>
                     @if (!hasLanguageSelected && form.touched) {
-                    <span class="form__error">{{ t('form.errors.languageRequired') }}</span>
+                    <span class="text-sm text-red-500">{{ t('form.errors.languageRequired') }}</span>
                     }
                 </div>
 
                 <!-- CV Upload -->
-                <div class="form__field form__field--full">
-                    <label class="form__label">{{ t('form.fields.cv') }}</label>
-                    <div class="form__upload" [class.has-file]="fileName()">
+                <div class="flex flex-col gap-2 md:col-span-2">
+                    <label class="text-sm font-bold text-text-muted uppercase tracking-wider">{{ t('form.fields.cv')
+                        }}</label>
+                    <div class="border-2 border-dashed border-gray-200 rounded-lg transition-all hover:border-primary hover:bg-primary/5 overflow-hidden"
+                        [class.border-solid]="fileName()" [class.border-green-500]="fileName()"
+                        [class.bg-green-50]="fileName()">
                         @if (fileName()) {
-                        <div class="form__upload-file">
-                            <span class="form__upload-filename">📄 {{ fileName() }}</span>
-                            <button type="button" class="form__upload-remove" (click)="removeFile()">✕</button>
+                        <div class="flex items-center justify-between px-6 py-4">
+                            <span class="text-base text-text-main">📄 {{ fileName() }}</span>
+                            <button type="button"
+                                class="w-7 h-7 flex items-center justify-center bg-red-100 text-red-500 rounded-full text-sm hover:bg-red-500 hover:text-white transition-all"
+                                (click)="removeFile()">✕</button>
                         </div>
                         } @else {
-                        <label class="form__upload-label" for="cv">
-                            <span class="form__upload-icon">📄</span>
-                            <span class="form__upload-text">{{ t('form.fields.cvUpload') }}</span>
+                        <label class="flex flex-col items-center gap-3 py-10 px-6 cursor-pointer" for="cv">
+                            <span class="text-5xl text-text-muted">📄</span>
+                            <span class="text-sm text-text-muted">{{ t('form.fields.cvUpload') }}</span>
                         </label>
-                        <input type="file" id="cv" class="form__upload-input" accept=".pdf,.doc,.docx"
+                        <input type="file" id="cv" class="hidden" accept=".pdf,.doc,.docx"
                             (change)="onFileSelected($event)">
                         }
                     </div>
@@ -124,16 +145,15 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="form__submit" [disabled]="isSubmitting()">
+            <button type="submit"
+                class="w-full flex items-center justify-center gap-2 mt-6 py-4 bg-primary text-white text-base font-bold rounded-lg shadow-lg hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                [disabled]="isSubmitting()">
                 @if (isSubmitting()) {
-                <span class="form__submit-spinner"></span>
+                <span class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></span>
                 {{ t('common.sending') }}
                 } @else {
                 {{ t('common.submit') }}
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <span class="material-symbols-outlined">arrow_forward</span>
                 }
             </button>
         </form>

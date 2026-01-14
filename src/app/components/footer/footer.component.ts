@@ -6,7 +6,6 @@ import { TranslationService } from '../../core/services/translation.service';
   selector: 'app-footer',
   standalone: true,
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
   private platformId = inject(PLATFORM_ID);

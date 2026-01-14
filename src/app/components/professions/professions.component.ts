@@ -2,16 +2,17 @@ import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../core/services/translation.service';
 
 interface Profession {
-  icon: string;
   title: string;
   salary: string;
+  image?: string;
+  location?: string;
+  features?: string[];
 }
 
 @Component({
   selector: 'app-professions',
   standalone: true,
   templateUrl: './professions.component.html',
-  styleUrl: './professions.component.scss',
 })
 export class ProfessionsComponent {
   private translationService = inject(TranslationService);

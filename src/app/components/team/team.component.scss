@@ -2,126 +2,222 @@
 @use '../../../styles/mixins' as *;
 
 .team {
-    position: relative;
-    background: linear-gradient(180deg, $color-bg-dark 0%, $color-bg-medium 100%);
+    width: 100%;
+    padding: $spacing-20 $spacing-6;
+    background: white;
 
     &__container {
-        @include container;
-    }
-
-    &__header {
-        text-align: center;
-        margin-bottom: $spacing-12;
-    }
-
-    &__title {
-        @include section-title;
-    }
-
-    &__subtitle {
-        @include section-subtitle;
+        max-width: 1120px;
+        margin: 0 auto;
     }
 
     &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-12;
+        justify-content: space-between;
+
+        @include md {
+            flex-direction: row;
+        }
+    }
+
+    &__section-title {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-main;
+        margin-bottom: $spacing-8;
+        padding-left: $spacing-4;
+        border-left: 4px solid $color-primary;
+    }
+
+    // Team Column
+    &__members-col {
+        flex: 1;
+    }
+
+    &__members-grid {
         display: grid;
-        gap: $spacing-8;
-        max-width: 800px;
-        margin: 0 auto;
+        gap: $spacing-6;
 
         @include sm {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    &__cta-text {
-        text-align: center;
-        margin-top: $spacing-10;
-        font-size: $font-size-lg;
-        color: $color-text-muted;
+    // Office Column
+    &__office-col {
+        width: 100%;
+
+        @include md {
+            width: 33%;
+        }
+    }
+
+    &__office-card {
+        background: $color-background-dark;
+        color: white;
+        padding: $spacing-8;
+        border-radius: $radius-xl;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__office-cross {
+        position: absolute;
+        right: -$spacing-10;
+        top: -$spacing-10;
+        pointer-events: none;
+
+        .material-symbols-outlined {
+            font-size: 150px;
+            color: rgba(255, 255, 255, 0.05);
+        }
+    }
+
+    &__office-content {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-6;
+    }
+
+    &__office-header {
+        h4 {
+            font-size: $font-size-lg;
+            font-weight: $font-weight-bold;
+            color: white;
+            margin-bottom: $spacing-1;
+        }
+
+        p {
+            font-size: $font-size-sm;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    &__office-info {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+    }
+
+    &__office-item {
+        display: flex;
+        align-items: flex-start;
+        gap: $spacing-3;
+
+        .material-symbols-outlined {
+            color: $color-primary;
+            margin-top: 2px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: $line-height-relaxed;
+        }
+    }
+
+    &__office-footer {
+        margin-top: $spacing-4;
+        padding-top: $spacing-4;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        gap: $spacing-4;
+
+        span {
+            font-size: $font-size-xs;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    &__office-flag {
+        height: 24px;
+        width: auto;
     }
 }
 
 .team-card {
-    @include glass-card;
-    overflow: hidden;
-    text-align: center;
-    transition: transform $transition-base, box-shadow $transition-base;
+    display: flex;
+    flex-direction: column;
+    background: $color-background-light;
+    padding: $spacing-6;
+    border-radius: $radius-lg;
+    border: 1px solid $color-border-light;
 
-    &:hover {
-        transform: translateY(-8px);
-        box-shadow: $shadow-xl, $shadow-glow-primary;
-    }
-
-    &__image-container {
-        width: 100%;
-        aspect-ratio: 1;
-        overflow: hidden;
-        background: $color-bg-light;
-    }
-
-    &__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform $transition-slow;
-
-        .team-card:hover & {
-            transform: scale(1.05);
-        }
-    }
-
-    &__content {
-        padding: $spacing-6;
-    }
-
-    &__name {
-        font-family: $font-display;
-        font-size: $font-size-xl;
-        font-weight: $font-weight-bold;
-        color: $color-text-primary;
-        margin-bottom: $spacing-1;
-
-        @include md {
-            font-size: $font-size-2xl;
-        }
-    }
-
-    &__role {
-        display: block;
-        font-size: $font-size-sm;
-        font-weight: $font-weight-medium;
-        color: $color-accent;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: $spacing-4;
         margin-bottom: $spacing-4;
     }
 
-    &__contact {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-2;
+    &__image {
+        width: 64px;
+        height: 64px;
+        border-radius: $radius-md;
+        object-fit: cover;
+        box-shadow: $shadow-sm;
     }
 
-    &__email,
-    &__phone {
+    &__name {
+        font-weight: $font-weight-bold;
+        color: $color-text-main;
+    }
+
+    &__role {
+        font-size: $font-size-xs;
+        color: $color-primary;
+        font-weight: $font-weight-medium;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    &__actions {
+        display: flex;
+        gap: $spacing-3;
+        margin-top: auto;
+    }
+
+    &__btn {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: $spacing-2;
         padding: $spacing-2 $spacing-3;
         font-size: $font-size-sm;
-        color: $color-text-secondary;
+        font-weight: $font-weight-semibold;
         text-decoration: none;
-        border-radius: $radius-md;
+        border-radius: $radius-sm;
         transition: all $transition-base;
 
-        &:hover {
-            background: rgba($color-primary, 0.1);
-            color: $color-primary;
+        .material-symbols-outlined {
+            font-size: 14px;
         }
-    }
 
-    &__icon {
-        font-size: $font-size-base;
+        &--email {
+            flex: 1;
+            background: white;
+            border: 1px solid $color-border-light;
+            color: $color-text-main;
+
+            &:hover {
+                border-color: $color-primary;
+                color: $color-primary;
+            }
+        }
+
+        &--linkedin {
+            padding: $spacing-2;
+            background: rgba(#0077b5, 0.1);
+            color: #0077b5;
+
+            &:hover {
+                background: #0077b5;
+                color: white;
+            }
+        }
     }
 }

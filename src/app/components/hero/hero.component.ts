@@ -7,12 +7,11 @@ import { TranslationService } from '../../core/services/translation.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
   private translationService = inject(TranslationService);
 
-  readonly statsValues = ['500+', '15+', '98%'];
+  readonly statsValues = ['500+', '15+', '100%', '48h'];
 
   t(key: string): string {
     return this.translationService.t(key);
@@ -22,7 +21,8 @@ export class HeroComponent {
     return [
       this.t('hero.stats.workers'),
       this.t('hero.stats.experience'),
-      this.t('hero.stats.satisfaction'),
+      this.t('hero.stats.verified'),
+      this.t('hero.stats.processing'),
     ];
   }
 }

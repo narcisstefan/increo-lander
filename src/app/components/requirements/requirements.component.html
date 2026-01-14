@@ -1,25 +1,26 @@
-<section class="requirements section" id="cerinte">
-    <div class="requirements__container">
+<section class="w-full py-20 bg-white border-b border-gray-200" id="cerinte">
+    <div class="max-w-5xl mx-auto px-6">
         <!-- Section Header -->
-        <div class="requirements__header">
-            <h2 class="requirements__title">{{ t('requirements.title') }}</h2>
-            <p class="requirements__subtitle">{{ t('requirements.subtitle') }}</p>
+        <div class="text-center max-w-lg mx-auto mb-12">
+            <span class="block text-primary font-bold tracking-wider uppercase text-sm mb-2">{{
+                t('requirements.sectionLabel') }}</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-text-main leading-snug tracking-tight">{{
+                t('requirements.title') }}</h2>
         </div>
 
         <!-- Requirements Grid -->
-        <div class="requirements__grid">
+        <div class="grid gap-8 md:grid-cols-3">
             @for (req of requirements; track req.title; let i = $index) {
-            <article class="requirement-card" [class.requirement-card--red]="req.borderColor === 'red'"
-                [class.requirement-card--gold]="req.borderColor === 'gold'"
-                [class.requirement-card--blue]="req.borderColor === 'blue'" [style.animation-delay.ms]="i * 150">
-                <div class="requirement-card__icon">{{ req.icon }}</div>
-                <h3 class="requirement-card__title">{{ req.title }}</h3>
-                <p class="requirement-card__description">
-                    {{ req.description }}
-                    @if (req.highlight) {
-                    <strong class="requirement-card__highlight">{{ req.highlight }}</strong>
-                    }
-                </p>
+            <article
+                class="flex flex-col p-8 rounded-xl bg-surface-light border border-transparent transition-all duration-300 hover:border-gray-200 group">
+                <div
+                    class="w-14 h-14 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-primary">
+                    <span
+                        class="material-symbols-outlined text-primary text-3xl group-hover:text-white transition-colors">{{
+                        req.materialIcon }}</span>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-3">{{ req.title }}</h3>
+                <p class="text-base text-text-muted leading-relaxed">{{ req.description }}</p>
             </article>
             }
         </div>

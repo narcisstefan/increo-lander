@@ -12,7 +12,6 @@ interface LanguageOption {
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './application-form.component.html',
-  styleUrl: './application-form.component.scss',
 })
 export class ApplicationFormComponent {
   private translationService = inject(TranslationService);

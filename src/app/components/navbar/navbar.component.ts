@@ -8,16 +8,15 @@ import { SUPPORTED_LANGUAGES, LanguageConfig } from '../../core/i18n/i18n.config
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
   private platformId = inject(PLATFORM_ID);
   private translationService = inject(TranslationService);
   private languageService = inject(LanguageService);
 
-  isScrolled = signal(false);
-  isMobileMenuOpen = signal(false);
-  isLangMenuOpen = signal(false);
+  private _isScrolled = signal(false);
+  private _isMobileMenuOpen = signal(false);
+  private _isLangMenuOpen = signal(false);
 
   languages = SUPPORTED_LANGUAGES;
 
@@ -28,18 +27,34 @@ export class NavbarComponent {
     { labelKey: 'nav.contact', href: '#aplica' },
   ];
 
+  get isScrolled(): boolean {
+    return this._isScrolled();
+  }
+
+  get isMobileMenuOpen(): boolean {
+    return this._isMobileMenuOpen();
+  }
+
+  get isLangOpen(): boolean {
+    return this._isLangMenuOpen();
+  }
+
+  get currentLang(): string {
+    return this.getCurrentLanguage().code.toUpperCase();
+  }
+
   @HostListener('window:scroll')
   onScroll(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.isScrolled.set(window.scrollY > 50);
+      this._isScrolled.set(window.scrollY > 50);
     }
   }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const target = event.target as HTMLElement;
-    if (!target.closest('.navbar__lang')) {
-      this.isLangMenuOpen.set(false);
+    if (!target.closest('.lang-dropdown')) {
+      this._isLangMenuOpen.set(false);
     }
   }
 
@@ -56,20 +71,20 @@ export class NavbarComponent {
   }
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen.update((v) => !v);
+    this._isMobileMenuOpen.update((v) => !v);
   }
 
   closeMobileMenu(): void {
-    this.isMobileMenuOpen.set(false);
+    this._isMobileMenuOpen.set(false);
   }
 
-  toggleLangMenu(): void {
-    this.isLangMenuOpen.update((v) => !v);
+  toggleLangDropdown(): void {
+    this._isLangMenuOpen.update((v) => !v);
   }
 
-  switchLanguage(lang: LanguageConfig): void {
-    this.languageService.switchLanguage(lang.code);
-    this.isLangMenuOpen.set(false);
+  changeLanguage(langCode: string): void {
+    this.languageService.switchLanguage(langCode);
+    this._isLangMenuOpen.set(false);
   }
 
   scrollToSection(event: Event, href: string): void {
@@ -83,3 +98,4 @@ export class NavbarComponent {
     }
   }
 }
+

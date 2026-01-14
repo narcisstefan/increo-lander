@@ -11,7 +11,6 @@ interface WhyPoint {
   selector: 'app-why-switzerland',
   standalone: true,
   templateUrl: './why-switzerland.component.html',
-  styleUrl: './why-switzerland.component.scss',
 })
 export class WhySwitzerlandComponent {
   private translationService = inject(TranslationService);

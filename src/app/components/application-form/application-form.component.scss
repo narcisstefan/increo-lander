@@ -3,32 +3,56 @@
 
 .application-form {
     position: relative;
-    background: $color-bg-dark;
+    width: 100%;
+    padding: $spacing-24 $spacing-6;
+    background: #E5E7EB;
+
+    // Decorative pattern
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0.03;
+        pointer-events: none;
+        background-image: radial-gradient($color-primary 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
 
     &__container {
-        @include container;
         max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
     }
 
     &__header {
         text-align: center;
-        margin-bottom: $spacing-12;
+        margin-bottom: $spacing-10;
     }
 
     &__title {
-        @include section-title;
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-extrabold;
+        color: $color-text-main;
+        margin-bottom: $spacing-3;
+
+        @include md {
+            font-size: $font-size-4xl;
+        }
     }
 
     &__subtitle {
-        @include section-subtitle;
+        color: $color-text-muted;
     }
 
     // Success state
     &__success {
-        @include glass-card;
+        background: white;
+        border-radius: $radius-xl;
         padding: $spacing-12;
         text-align: center;
-        animation: scaleIn 0.5s $transition-spring forwards;
+        box-shadow: $shadow-2xl;
+        border-top: 4px solid $color-primary;
 
         &-icon {
             font-size: 4rem;
@@ -36,9 +60,9 @@
         }
 
         &-title {
-            font-family: $font-display;
             font-size: $font-size-2xl;
             color: $color-success;
+            font-weight: $font-weight-bold;
             margin-bottom: $spacing-4;
 
             @include md {
@@ -48,67 +72,115 @@
 
         &-text {
             font-size: $font-size-lg;
-            color: $color-text-secondary;
+            color: $color-text-muted;
             max-width: 480px;
             margin: 0 auto $spacing-8;
         }
     }
 
     &__reset-btn {
-        @include button-outline;
+        display: inline-flex;
+        padding: $spacing-3 $spacing-6;
+        border: 2px solid $color-border-light;
+        background: white;
+        color: $color-text-main;
+        font-weight: $font-weight-bold;
+        border-radius: $radius-md;
+        cursor: pointer;
+        transition: all $transition-base;
+
+        &:hover {
+            border-color: $color-primary;
+            color: $color-primary;
+        }
     }
 }
 
 .form {
-    @include glass-card;
+    background: white;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-2xl;
     padding: $spacing-8;
+    border-top: 4px solid $color-primary;
 
     @include md {
-        padding: $spacing-10;
+        padding: $spacing-12;
     }
 
     &__grid {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: $spacing-6;
-
-        @include md {
-            grid-template-columns: repeat(2, 1fr);
-        }
     }
 
     &__field {
-        @include flex-col;
+        display: flex;
+        flex-direction: column;
         gap: $spacing-2;
 
         &--full {
+            grid-column: span 1;
+
             @include md {
                 grid-column: span 2;
             }
         }
     }
 
+    // Two-column grid for name/email, phone/job
+    @include md {
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     &__label {
         font-size: $font-size-sm;
-        font-weight: $font-weight-medium;
-        color: $color-text-secondary;
+        font-weight: $font-weight-bold;
+        color: $color-text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
     &__input,
     &__select {
-        @include input-base;
+        width: 100%;
+        padding: $spacing-3;
+        border-radius: $radius-lg;
+        border: 1px solid $color-border-light;
+        background: $color-surface-light;
+        color: $color-text-main;
+        font-size: $font-size-base;
+        transition: all $transition-base;
+        box-shadow: $shadow-sm;
+
+        &::placeholder {
+            color: $color-text-muted;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+        }
+
+        &.error {
+            border-color: $color-error;
+        }
     }
 
     &__select {
         appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right $spacing-4 center;
         padding-right: $spacing-12;
         cursor: pointer;
 
         option {
-            background: $color-bg-dark;
-            color: $color-text-primary;
+            background: white;
+            color: $color-text-main;
         }
     }
 
@@ -127,7 +199,7 @@
     &__checkbox {
         display: flex;
         align-items: center;
-        gap: $spacing-2;
+        gap: $spacing-3;
         cursor: pointer;
         user-select: none;
 
@@ -154,9 +226,9 @@
         }
 
         &-custom {
-            width: 22px;
-            height: 22px;
-            border: 2px solid $color-border-hover;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $color-border-light;
             border-radius: $radius-sm;
             position: relative;
             transition: all $transition-base;
@@ -178,24 +250,25 @@
 
         &-label {
             font-size: $font-size-base;
-            color: $color-text-secondary;
+            color: $color-text-muted;
+            transition: color $transition-base;
         }
 
-        &:hover .form__checkbox-custom {
-            border-color: $color-primary;
+        &:hover .form__checkbox-label {
+            color: $color-primary;
         }
     }
 
     // File upload
     &__upload {
-        border: 2px dashed $color-border-hover;
+        border: 2px dashed $color-border-light;
         border-radius: $radius-lg;
         transition: all $transition-base;
         overflow: hidden;
 
         &:hover {
             border-color: $color-primary;
-            background: rgba($color-primary, 0.05);
+            background: rgba($color-primary, 0.02);
         }
 
         &.has-file {
@@ -208,18 +281,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: $spacing-2;
-            padding: $spacing-8;
+            gap: $spacing-3;
+            padding: $spacing-10 $spacing-6;
             cursor: pointer;
         }
 
         &-icon {
-            font-size: 2rem;
+            font-size: 48px;
+            color: $color-text-muted;
+            transition: color $transition-base;
+
+            .form__upload:hover & {
+                color: $color-primary;
+            }
         }
 
         &-text {
             font-size: $font-size-sm;
             color: $color-text-muted;
+
+            span {
+                font-weight: $font-weight-semibold;
+                color: $color-primary;
+            }
         }
 
         &-input {
@@ -235,14 +319,16 @@
 
         &-filename {
             font-size: $font-size-base;
-            color: $color-text-primary;
+            color: $color-text-main;
         }
 
         &-remove {
             width: 28px;
             height: 28px;
-            @include flex-center;
-            background: rgba($color-error, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba($color-error, 0.1);
             color: $color-error;
             border: none;
             border-radius: 50%;
@@ -257,13 +343,50 @@
         }
     }
 
+    // Trust badge
+    &__trust {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-2;
+        font-size: $font-size-xs;
+        color: $color-text-muted;
+        padding: $spacing-2 0;
+
+        .material-symbols-outlined {
+            font-size: 14px;
+        }
+    }
+
     // Submit button
     &__submit {
-        @include button-primary;
         width: 100%;
-        padding: $spacing-5;
-        font-size: $font-size-lg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-2;
+        padding: $spacing-4;
+        background: $color-primary;
+        color: white;
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+        border: none;
+        border-radius: $radius-lg;
+        cursor: pointer;
+        transition: all $transition-base;
+        box-shadow: $shadow-lg;
         margin-top: $spacing-6;
+
+        &:hover:not(:disabled) {
+            background: $color-primary-dark;
+            transform: translateY(-2px);
+            box-shadow: $shadow-xl;
+        }
+
+        &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
 
         svg {
             transition: transform $transition-base;
@@ -271,10 +394,6 @@
 
         &:hover:not(:disabled) svg {
             transform: translateX(4px);
-        }
-
-        &:disabled {
-            opacity: 0.7;
         }
     }
 

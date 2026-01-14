@@ -1,82 +1,108 @@
-<header class="navbar" [class.scrolled]="isScrolled()">
-    <div class="navbar__container">
+<nav class="sticky top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-xl border-b border-gray-100 transition-all"
+    [class.shadow-sm]="isScrolled">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-20">
         <!-- Logo -->
-        <a href="#" class="navbar__logo" (click)="scrollToSection($event, '#hero')">
-            <svg class="navbar__logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.47 54.66">
+        <a href="#" class="flex items-center gap-3 cursor-pointer group" (click)="scrollToSection($event, '#hero')">
+            <svg class="h-6 md:h-7 w-auto fill-text-main group-hover:fill-primary transition-colors"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.47 54.66">
                 <path
                     d="M0,1.33h11.4v16.31H3.34l8.06,13.13v22.57H0V1.33ZM51.12,0c-6.64,0-12.28,2.1-16.82,5.97V1.33h-11.51v52.01h11.51V18.26c4.09-5.09,9.52-7.86,14.5-7.86,8.41,0,13.5,5.09,13.5,14.61v28.33h11.51v-28.99c0-15.05-9.18-24.34-22.68-24.34ZM148.92,1.33h-11.51v52.01h11.51V20.58c4.65-6.09,10.96-9.18,19.25-9.51V.22c-7.97,0-14.5,2.99-19.25,8.19V1.33ZM106.95,44.26c-9.63,0-15.94-7.52-15.94-16.93s6.31-16.93,15.94-16.93c5.87,0,10.45,2.84,12.62,7.23h12.14c-2.89-10.52-12.68-17.63-24.76-17.63-15.6,0-27.44,11.95-27.44,27.33s11.84,27.33,27.44,27.33c12.08,0,21.87-7.11,24.76-17.63h-12.14c-2.17,4.39-6.75,7.23-12.62,7.23ZM283.47,27.33c0,15.93-11.51,27.33-27.66,27.33s-27.66-11.4-27.66-27.33S239.65,0,255.8,0s27.66,11.4,27.66,27.33ZM271.96,27.33c0-9.85-6.75-16.93-16.16-16.93s-16.16,7.08-16.16,16.93,6.75,16.93,16.16,16.93,16.16-7.19,16.16-16.93ZM222.15,30.76h-40.83c1.09,7.85,6.09,13.83,15.82,13.83,6.79,0,10.84-4.22,12.16-7.56h11.49c-3.1,9.84-12.47,17.63-23.75,17.63-16.38,0-27.44-11.84-27.44-27.33S180.55,0,196.37,0c17.26,0,27.99,13.17,25.78,30.76ZM210.76,22.8c-.66-8.52-6.2-13.06-14.27-13.06-9.35,0-14.14,6.88-14.94,13.06h29.21Z" />
             </svg>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="navbar__nav">
-            @for (link of navLinks; track link.href) {
-            <a [href]="link.href" class="navbar__link" (click)="scrollToSection($event, link.href)">
-                {{ getNavLabel(link.labelKey) }}
-            </a>
-            }
-        </nav>
-
-        <!-- Language Selector -->
-        <div class="navbar__lang">
-            <button class="navbar__lang-btn" (click)="toggleLangMenu()" type="button">
-                <span class="navbar__lang-code">{{ getCurrentLanguage().code.toUpperCase() }}</span>
-                <svg class="navbar__lang-arrow" [class.open]="isLangMenuOpen()" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 9l6 6 6-6"/>
-                </svg>
-            </button>
-            <div class="navbar__lang-dropdown" [class.open]="isLangMenuOpen()">
-                @for (lang of languages; track lang.code) {
-                <button
-                    class="navbar__lang-option"
-                    [class.active]="lang.code === getCurrentLanguage().code"
-                    (click)="switchLanguage(lang)"
-                    type="button">
-                    {{ lang.nativeName }}
-                </button>
-                }
-            </div>
+        <!-- Navigation Links -->
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#beneficii" class="text-sm font-semibold text-text-muted hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#beneficii')">{{ t('nav.benefits') }}</a>
+            <a href="#meserii" class="text-sm font-semibold text-text-muted hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#meserii')">{{ t('nav.professions') }}</a>
+            <a href="#cerinte" class="text-sm font-semibold text-text-muted hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#cerinte')">{{ t('nav.requirements') }}</a>
+            <a href="#de-ce-elvetia" class="text-sm font-semibold text-text-muted hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#de-ce-elvetia')">{{ t('nav.whySwitzerland') }}</a>
+            <a href="#echipa" class="text-sm font-semibold text-text-muted hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#echipa')">{{ t('nav.team') }}</a>
         </div>
 
-        <!-- CTA Button -->
-        <a href="#aplica" class="navbar__cta" (click)="scrollToSection($event, '#aplica')">
-            {{ t('common.applyNow') }}
-        </a>
+        <!-- Actions -->
+        <div class="hidden md:flex items-center gap-4">
+            <!-- Language Selector -->
+            <div class="relative hidden lg:block lang-dropdown">
+                <button
+                    class="flex items-center gap-2 px-3 py-2 text-xs font-bold uppercase tracking-wider text-text-main bg-transparent border border-gray-200 rounded-sm hover:bg-surface-light transition-all"
+                    (click)="toggleLangDropdown()">
+                    <span>{{ currentLang }}</span>
+                    <span class="material-symbols-outlined text-sm transition-transform"
+                        [class.rotate-180]="isLangOpen">expand_more</span>
+                </button>
+                <div class="absolute top-full right-0 mt-2 min-w-[140px] bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden transition-all"
+                    [class.opacity-0]="!isLangOpen" [class.invisible]="!isLangOpen"
+                    [class.translate-y-[-10px]]="!isLangOpen" [class.opacity-100]="isLangOpen"
+                    [class.visible]="isLangOpen" [class.translate-y-0]="isLangOpen">
+                    <button
+                        class="block w-full px-4 py-3 text-sm text-left text-text-muted hover:bg-surface-light hover:text-text-main transition-all"
+                        [class.bg-primary/10]="currentLang === 'RO'" [class.text-primary]="currentLang === 'RO'"
+                        (click)="changeLanguage('ro')">Română</button>
+                    <button
+                        class="block w-full px-4 py-3 text-sm text-left text-text-muted hover:bg-surface-light hover:text-text-main transition-all"
+                        [class.bg-primary/10]="currentLang === 'DE'" [class.text-primary]="currentLang === 'DE'"
+                        (click)="changeLanguage('de')">Deutsch</button>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#aplica"
+                class="px-6 py-3 bg-primary text-white text-sm font-bold rounded-md shadow-swiss hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all"
+                (click)="scrollToSection($event, '#aplica')">
+                {{ t('nav.cta') }}
+            </a>
+        </div>
 
         <!-- Mobile Menu Button -->
-        <button class="navbar__mobile-btn" [class.active]="isMobileMenuOpen()" (click)="toggleMobileMenu()"
-            aria-label="Toggle menu">
-            <span class="navbar__mobile-btn-line"></span>
-            <span class="navbar__mobile-btn-line"></span>
-            <span class="navbar__mobile-btn-line"></span>
+        <button
+            class="md:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 p-2 text-text-muted hover:text-primary"
+            (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+            <span class="block w-6 h-0.5 bg-current rounded transition-all" [class.translate-y-[7px]]="isMobileMenuOpen"
+                [class.rotate-45]="isMobileMenuOpen"></span>
+            <span class="block w-6 h-0.5 bg-current rounded transition-all" [class.opacity-0]="isMobileMenuOpen"></span>
+            <span class="block w-6 h-0.5 bg-current rounded transition-all"
+                [class.-translate-y-[7px]]="isMobileMenuOpen" [class.-rotate-45]="isMobileMenuOpen"></span>
         </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div class="navbar__mobile-menu" [class.open]="isMobileMenuOpen()">
-        <nav class="navbar__mobile-nav">
-            @for (link of navLinks; track link.href) {
-            <a [href]="link.href" class="navbar__mobile-link" (click)="scrollToSection($event, link.href)">
-                {{ getNavLabel(link.labelKey) }}
-            </a>
-            }
+    <div class="fixed left-0 right-0 bottom-0 bg-white z-40 md:hidden transition-all overflow-y-auto border-t border-gray-200 shadow-lg"
+        style="top: 5rem; height: calc(100vh - 5rem);" [class.opacity-0]="!isMobileMenuOpen"
+        [class.pointer-events-none]="!isMobileMenuOpen" [class.opacity-100]="isMobileMenuOpen"
+        [class.pointer-events-auto]="isMobileMenuOpen">
+        <div class="flex flex-col items-center gap-6 p-8">
+            <a href="#beneficii" class="text-xl font-semibold text-text-main hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#beneficii')">{{ t('nav.benefits') }}</a>
+            <a href="#meserii" class="text-xl font-semibold text-text-main hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#meserii')">{{ t('nav.professions') }}</a>
+            <a href="#cerinte" class="text-xl font-semibold text-text-main hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#cerinte')">{{ t('nav.requirements') }}</a>
+            <a href="#echipa" class="text-xl font-semibold text-text-main hover:text-primary transition-colors"
+                (click)="scrollToSection($event, '#echipa')">{{ t('nav.team') }}</a>
 
             <!-- Mobile Language Selector -->
-            <div class="navbar__mobile-lang">
-                @for (lang of languages; track lang.code) {
+            <div class="flex gap-2 mt-4">
                 <button
-                    class="navbar__mobile-lang-btn"
-                    [class.active]="lang.code === getCurrentLanguage().code"
-                    (click)="switchLanguage(lang)"
-                    type="button">
-                    {{ lang.code.toUpperCase() }}
-                </button>
-                }
+                    class="px-4 py-2 bg-transparent border border-gray-200 rounded-sm text-sm font-bold text-text-muted hover:bg-surface-light transition-all"
+                    [class.border-primary]="currentLang === 'RO'" [class.text-primary]="currentLang === 'RO'"
+                    (click)="changeLanguage('ro')">RO</button>
+                <button
+                    class="px-4 py-2 bg-transparent border border-gray-200 rounded-sm text-sm font-bold text-text-muted hover:bg-surface-light transition-all"
+                    [class.border-primary]="currentLang === 'DE'" [class.text-primary]="currentLang === 'DE'"
+                    (click)="changeLanguage('de')">DE</button>
             </div>
 
-            <a href="#aplica" class="navbar__mobile-cta" (click)="scrollToSection($event, '#aplica')">
-                {{ t('common.applyNow') }}
+            <!-- Mobile CTA -->
+            <a href="#aplica"
+                class="mt-4 px-8 py-4 bg-primary text-white text-lg font-bold rounded-md hover:bg-primary-dark transition-all"
+                (click)="scrollToSection($event, '#aplica')">
+                {{ t('nav.cta') }}
             </a>
-        </nav>
+        </div>
     </div>
-</header>
+</nav>

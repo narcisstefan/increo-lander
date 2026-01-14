@@ -1,78 +1,102 @@
-<section class="hero" id="hero">
-    <!-- Background decorations -->
-    <div class="hero__bg">
-        <div class="hero__orb hero__orb--primary"></div>
-        <div class="hero__orb hero__orb--accent"></div>
-        <!-- Swiss Flag (Reverted to Stable Image) -->
-        <img src="assets/images/swiss-flag.svg" alt="Steagul Elveției" class="hero__swiss-flag" aria-hidden="true">
-    </div>
-
-    <div class="hero__container">
-        <div class="hero__content">
-            <!-- Badge -->
-            <div class="hero__badge">
-                <span class="hero__badge-flag">🇨🇭</span>
-                <span class="hero__badge-text">{{ t('hero.badge') }}</span>
-            </div>
-
-            <!-- Headline -->
-            <h1 class="hero__title">
-                {{ t('hero.title') }} <span class="hero__title-accent">{{ t('hero.titleAccent') }}</span> {{
-                t('hero.titleEnd') }}
-            </h1>
-
-            <!-- Subheadline -->
-            <p class="hero__subtitle" [innerHTML]="t('hero.subtitle')"></p>
-
-            <!-- CTAs -->
-            <div class="hero__ctas">
-                <a href="#aplica" class="hero__cta-primary">
-                    {{ t('common.applyNow') }}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
-                <a href="#beneficii" class="hero__cta-secondary">
-                    {{ t('common.learnMore') }}
-                </a>
-            </div>
-
-            <!-- Stats -->
-            <div class="hero__stats">
-                @for (label of statsLabels; track label; let i = $index) {
-                <div class="hero__stat">
-                    <span class="hero__stat-value">{{ statsValues[i] }}</span>
-                    <span class="hero__stat-label">{{ label }}</span>
-                </div>
-                }
-            </div>
-        </div>
-
-        <!-- Decorative side -->
-        <div class="hero__visual" aria-hidden="true">
-            <div class="hero__visual-card">
-                <div class="hero__visual-icon">🏗️</div>
-                <div class="hero__visual-text">
-                    <span class="hero__visual-title">{{ t('hero.verifiedJob') }}</span>
-                    <span class="hero__visual-desc">{{ t('hero.swissContract') }}</span>
-                </div>
-            </div>
-            <div class="hero__visual-card hero__visual-card--salary">
-                <div class="hero__visual-icon">💰</div>
-                <div class="hero__visual-text">
-                    <span class="hero__visual-title">{{ t('hero.avgSalary') }}</span>
-                    <span class="hero__visual-desc">{{ t('hero.avgSalaryDesc') }}</span>
-                </div>
-            </div>
+<section class="relative w-full overflow-hidden bg-white" id="hero">
+    <!-- Background Grid Pattern -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute inset-0 opacity-30"
+            style="background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px); background-size: 40px 40px;">
         </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="hero__scroll-indicator">
-        <div class="hero__scroll-mouse">
-            <div class="hero__scroll-wheel"></div>
+    <div class="max-w-7xl mx-auto px-4 py-12 md:px-6 md:py-16 lg:px-8 lg:py-24 lg:pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <!-- Text Content -->
+            <div class="flex flex-col gap-8 relative z-10 lg:col-span-6">
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 border border-primary/10 rounded-full w-fit">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <span class="text-xs font-bold text-primary uppercase tracking-wider">{{ t('hero.badge') }}</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text-main leading-tight tracking-tight">
+                    {{ t('hero.title') }} <span class="text-primary">{{ t('hero.titleAccent') }}</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl pl-6 border-l-4 border-primary"
+                    [innerHTML]="t('hero.subtitle')"></p>
+
+                <!-- CTAs -->
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#aplica"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white text-base lg:text-lg font-bold rounded-md shadow-swiss hover:bg-primary-dark hover:-translate-y-1 hover:shadow-lg transition-all">
+                        <span>{{ t('common.applyNow') }}</span>
+                        <span class="material-symbols-outlined text-xl">arrow_forward</span>
+                    </a>
+                    <a href="#beneficii"
+                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-text-main text-base lg:text-lg font-bold border-2 border-gray-200 rounded-md hover:border-primary hover:text-primary transition-all">
+                        {{ t('common.learnMore') }}
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="flex flex-col gap-3 mt-4">
+                    <div class="flex items-center gap-2 text-sm font-medium text-text-muted">
+                        <span class="material-symbols-outlined text-primary text-lg">verified</span>
+                        <span>{{ t('hero.agencyBadge') || 'Agenție acreditată oficial în Elveția' }}</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-medium text-text-muted">
+                        <span class="material-symbols-outlined text-primary text-lg">group</span>
+                        <span>{{ t('hero.workersBadge') || 'Peste 500 de muncitori plasați în ultimul an' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="relative lg:col-span-6">
+                <div
+                    class="relative rounded-2xl overflow-hidden shadow-2xl bg-surface-light aspect-[4/3] lg:aspect-square transition-transform duration-700 hover:scale-[1.01] group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 z-20 text-white flex items-center gap-4">
+                        <div class="bg-white/20 backdrop-blur-sm p-2 rounded-lg">
+                            <span class="material-symbols-outlined text-white">engineering</span>
+                        </div>
+                    </div>
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWtY5AXIfmBnBOhUvZXddpMMdbtQ8ErytHGw9IOTe9zZY-Qdj5YCu-lb8eYNRg06Nz-pllfFeUKMGfwmqwsTWZHzKP763XmIWPMhaeILgXm6qUVQRj8SW3j3kN4eNBM12MOJXZOehRcUlrOJQvo_rDAJVfsdNMWwUf8GjtoOKc7YH3PS7qyBRchk2utVO52WJ80JwMFN4sH8w_MwhXalxmDcAE6MlClIQPA9DKrnM-OIXWvybRhZDdDwGAKgqS0o9x-Jfv1hA0xlbq');">
+                    </div>
+                </div>
+                <!-- Floating Stat Card - FIXED z-index to be above image -->
+                <div
+                    class="hidden lg:flex absolute -bottom-6 -left-6 z-30 bg-white p-6 rounded-xl shadow-xl border border-gray-100 max-w-[200px] items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-green-600 text-2xl">sentiment_satisfied</span>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-extrabold text-text-main">98%</p>
+                        <p class="text-sm font-semibold text-text-muted">{{ t('hero.satisfactionRate') || 'Rată de
+                            Satisfacție' }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span class="hero__scroll-text">{{ t('common.scroll') }}</span>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="border-t border-b border-gray-200 bg-surface-light">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-2 md:grid-cols-4">
+            @for (label of statsLabels; track label; let i = $index) {
+            <div
+                class="p-6 md:p-8 text-center border-r border-gray-200 last:border-r-0 hover:bg-white transition-colors [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r">
+                <p class="text-2xl md:text-4xl font-extrabold text-primary mb-1">{{ statsValues[i] }}</p>
+                <p class="text-sm font-bold text-text-muted uppercase tracking-wider">{{ label }}</p>
+            </div>
+            }
+        </div>
     </div>
 </section>

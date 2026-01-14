@@ -10,10 +10,12 @@
   "nav": {
     "benefits": "Beneficii",
     "professions": "Meserii",
-    "whySwitzerland": "De ce Elveția",
+    "whySwitzerland": "De ce Elveția?",
     "contact": "Contact",
     "requirements": "Cerințe",
-    "apply": "Aplică"
+    "apply": "Aplică",
+    "cta": "Aplică Acum",
+    "team": "Echipă"
   },
   "hero": {
     "badge": "RECRUTARE OFICIALĂ PENTRU ELVEȚIA",
@@ -25,91 +27,125 @@
     "swissContract": "Contract elvețian",
     "avgSalary": "5,500 CHF/lună",
     "avgSalaryDesc": "Salariu net mediu",
+    "agencyBadge": "Agenție acreditată oficial în Elveția",
+    "workersBadge": "Peste 500 de muncitori plasați în ultimul an",
+    "satisfactionRate": "Rată de Satisfacție",
+    "activeSites": "Șantiere Active",
     "stats": {
       "workers": "Muncitori Plasați",
       "experience": "Ani Experiență",
-      "satisfaction": "Satisfacție"
+      "verified": "Job Verificat",
+      "processing": "Timp Procesare"
     }
   },
   "benefits": {
     "title": "De ce să lucrezi în Elveția?",
     "subtitle": "Beneficii care îți vor schimba viața profesională și financiară",
+    "sectionLabel": "Beneficii Premium",
     "items": [
       {
         "icon": "💰",
+        "materialIcon": "payments",
         "title": "Salarii Atractive",
-        "description": "4,500 - 7,000 CHF net lunar pentru muncitori calificați în construcții"
+        "description": "Venituri nete considerabile care îți permit să economisești și să trăiești confortabil."
       },
       {
         "icon": "🏠",
+        "materialIcon": "apartment",
         "title": "Cazare Asigurată",
-        "description": "Locuință modernă aproape de șantier, plătită integral de angajator"
+        "description": "Apartamente și camere verificate, aproape de locul de muncă, complet utilate."
       },
       {
         "icon": "✈️",
+        "materialIcon": "directions_bus",
         "title": "Transport Gratuit",
-        "description": "Deplasare România-Elveția asigurată complet de către companie"
+        "description": "Transport organizat din România până la cazare și navetă zilnică asigurată."
       },
       {
         "icon": "📋",
+        "materialIcon": "verified_user",
         "title": "Contract Legal",
-        "description": "Contract elvețian cu toate drepturile unui cetățean local"
+        "description": "Contract de muncă direct cu angajatorul elvețian, toate taxele plătite la zi."
       },
       {
         "icon": "🏥",
+        "materialIcon": "medical_services",
         "title": "Asigurare Medicală",
-        "description": "Acoperire completă în caz de accident sau boală profesională"
+        "description": "Acces complet la sistemul medical de top din Elveția pentru tine și familie."
       },
       {
         "icon": "🎁",
+        "materialIcon": "card_giftcard",
         "title": "Al 13-lea Salariu",
-        "description": "Bonus în decembrie + alte beneficii pe parcursul anului"
+        "description": "Bonus anual garantat prin contract, proporțional cu perioada lucrată."
       }
     ]
   },
   "professions": {
     "title": "Meserii Căutate",
     "subtitle": "Selectează domeniul tău de expertiză și vezi oferta salarială",
+    "sectionLabel": "Oportunități Deschise",
+    "viewAll": "Vezi Toate Joburile",
+    "netSalary": "Salariu Net",
     "items": [
-      { "icon": "🧱", "title": "Zidar", "salary": "5,000-6,000 CHF" },
-      { "icon": "🪵", "title": "Dulgher", "salary": "5,000-6,500 CHF" },
-      { "icon": "⚡", "title": "Electrician", "salary": "5,500-7,000 CHF" },
-      { "icon": "🔧", "title": "Instalator", "salary": "5,000-6,500 CHF" },
-      { "icon": "🪞", "title": "Faianțar", "salary": "4,800-5,800 CHF" },
-      { "icon": "📐", "title": "Rigipsar", "salary": "4,500-5,500 CHF" },
-      { "icon": "🚪", "title": "Tâmplar", "salary": "5,000-6,000 CHF" },
-      { "icon": "🎨", "title": "Finisor", "salary": "4,500-5,500 CHF" },
-      { "icon": "🏗️", "title": "Fierar Betonist", "salary": "5,200-6,200 CHF" },
-      { "icon": "👷", "title": "Șef Șantier", "salary": "6,000-8,000 CHF" }
+      {
+        "title": "Zidar (Maurer)",
+        "salary": "5.500 - 6.200 CHF",
+        "location": "Zurich",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCs6hDkDHNK3c9DcPBrDQaqiH9ecSi3F8rkTv4w9QYWGCL1z-mVffteBBfefQo1yiYeeFL5A20zKhapWzWthftJfw8zjSeBNBUL8uYkBWmAH-6XaNKqERNl7_-Oo96L9sIizXsPnhIJWWOKyoRB5U_bRUDfE16RMEg6miAI_U_nj8x3gXKTFE_7lpyvEyE0EXK54fjaGtERmXrVpMzVTIjty0jh3hIiaxsoyjOQFaLi5sK3PWrr0bRu_Mlh9YRG0YYO5GXBBimfLmTS",
+        "features": [
+          "Zidărie aparentă și brută",
+          "Citire planuri tehnice"
+        ]
+      },
+      {
+        "title": "Electrician",
+        "salary": "5.800 - 6.500 CHF",
+        "location": "Bern",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuACc05QZkH2NFmwxYitOkLGRTXtOjIJP3s3UcqGPw9AktDBP4hIB3iSCCEayRobMi_RU5eEIpAA1cGoLlYRBkdkYc-vrMuIUMFsr1KQ_-4loEhPyRc3z9a6xf7ybSodGU3zbeXkNd1eSEVY1FZ43lr2go7bN1Ba5Etc-U1QR7mVFZu-ZyJIZVBRlPK4pHbxkq0jnQyGrE3Ei4RrKJ8bnxMPbfntaQa84GJeoYDSYWNkj52PWh6X3nh91B2ZlGTpUCvX8iihXttpKitu",
+        "features": [
+          "Instalații curent slab/tare",
+          "Montaj tablouri electrice"
+        ]
+      },
+      {
+        "title": "Dulgher (Zimmermann)",
+        "salary": "5.300 - 6.000 CHF",
+        "location": "Luzern",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMGIXzh6gBxFG8tVWaql4h6WdYa3MSJ6cqQWb1kL9JiAszX_kvx79lEWPA9mycqJp2lCKfdp-hP1sivflKDY28HT6WgA3TezQZhr9b2IdRgpV54NyO9RI98mqSZmWj_0D2H9Ol6LW1YxOlejRRztk7o67jjGAfsShM6RPc5h4d5j7yL6RZLmNMCu-enuabnY3u67kXCERUrtdte5baKvO6plkHeLmCoUntyzNSaC6kZLplj1IVfS1PP76WBKxY-Ccg0H9NfeEv12__",
+        "features": [
+          "Cofraje sistem (Doka/Peri)",
+          "Lucru la înălțime"
+        ]
+      }
     ]
   },
   "requirements": {
     "title": "Ce Cerințe Trebuie Să Îndeplinești?",
     "subtitle": "Verifică dacă te califici pentru un loc de muncă în Elveția",
+    "sectionLabel": "Criterii de eligibilitate",
     "items": [
       {
-        "icon": "🔧",
-        "title": "Experiență în Construcții",
-        "description": "Minim 2-3 ani experiență demonstrabilă în domeniul construcțiilor",
-        "borderColor": "red"
+        "materialIcon": "work_history",
+        "title": "Experiență",
+        "description": "Căutăm profesioniști cu minim 3 ani experiență relevantă în domeniul construcțiilor. Calitatea execuției este prioritară."
       },
       {
-        "icon": "🗣️",
-        "title": "Cunoștințe Lingvistice",
-        "description": "Cel puțin nivel conversațional într-una din limbi:",
-        "highlight": "Germană, Italiană, Franceză sau Portugheză",
-        "borderColor": "gold"
+        "materialIcon": "translate",
+        "title": "Limbă",
+        "description": "Cunoștințe de limba germană la nivel conversațional (A2-B1). Comunicarea pe șantier este esențială pentru siguranță."
       },
       {
-        "icon": "📅",
+        "materialIcon": "calendar_month",
         "title": "Disponibilitate",
-        "description": "Angajare pe termen lung, minim 6 luni, cu posibilitate de prelungire",
-        "borderColor": "blue"
+        "description": "Flexibilitate pentru începere imediată sau la o dată precisă stabilită. Contractele sunt pe perioadă determinată sau nedeterminată."
       }
     ]
   },
   "whySwitzerland": {
     "title": "De ce să lucrezi în Elveția?",
+    "titleLine1": "De ce să lucrezi",
+    "titleLine2": "în Elveția?",
     "intro": "Elveția nu este doar o țară - este o oportunitate de a-ți transforma viața. Cu cele mai mari salarii din Europa, condiții de muncă excelente și o calitate a vieții de neegalat, Elveția este destinația ideală pentru profesioniștii din construcții.",
     "benefitsTitle": "Ce îți oferim noi:",
     "benefits": [
@@ -196,20 +232,41 @@
       "10+ ani"
     ],
     "languages": [
-      { "id": "german", "label": "Germană" },
-      { "id": "italian", "label": "Italiană" },
-      { "id": "french", "label": "Franceză" },
-      { "id": "portuguese", "label": "Portugheză" },
-      { "id": "english", "label": "Engleză" }
+      {
+        "id": "german",
+        "label": "Germană"
+      },
+      {
+        "id": "italian",
+        "label": "Italiană"
+      },
+      {
+        "id": "french",
+        "label": "Franceză"
+      },
+      {
+        "id": "portuguese",
+        "label": "Portugheză"
+      },
+      {
+        "id": "english",
+        "label": "Engleză"
+      }
     ]
   },
   "team": {
     "title": "Contactează-ne Direct",
     "subtitle": "Echipa noastră dedicată este aici pentru a-ți răspunde la orice întrebare. Nu ezita să ne contactezi direct pentru detalii despre oportunitățile disponibile.",
-    "ctaText": "Sau completează formularul de mai sus și te contactăm noi în maximum 24 de ore!"
+    "ctaText": "Sau completează formularul de mai sus și te contactăm noi în maximum 24 de ore!",
+    "officeTitle": "Sediu Central",
+    "licensedAgency": "Agenție licențiată de recrutare",
+    "canton": "Cantonul Zug, Elveția",
+    "secoCert": "Certificat SECO"
   },
   "footer": {
     "description": "Agenție de recrutare profesională pentru domeniul construcțiilor în Elveția. Conectăm talente românești cu cele mai bune oportunități de carieră elvețiene.",
+    "navigation": "Navigare",
+    "followUs": "Urmărește-ne",
     "contact": "Contact",
     "location": "6340 Baar, Elveția",
     "quickLinks": "Link-uri Rapide",

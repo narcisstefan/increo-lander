@@ -2,18 +2,15 @@ import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../core/services/translation.service';
 
 interface Requirement {
-  icon: string;
+  materialIcon: string;
   title: string;
   description: string;
-  highlight?: string;
-  borderColor: 'red' | 'gold' | 'blue';
 }
 
 @Component({
   selector: 'app-requirements',
   standalone: true,
   templateUrl: './requirements.component.html',
-  styleUrl: './requirements.component.scss',
 })
 export class RequirementsComponent {
   private translationService = inject(TranslationService);

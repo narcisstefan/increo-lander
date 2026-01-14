@@ -1,54 +1,46 @@
-<section class="why-switzerland section" id="de-ce-elvetia">
-    <div class="why-switzerland__container">
-        <!-- Section Header -->
-        <div class="why-switzerland__header">
-            <span class="why-switzerland__flag">🇨🇭</span>
-            <h2 class="why-switzerland__title">{{ t('whySwitzerland.title') }}</h2>
-            <p class="why-switzerland__intro">{{ t('whySwitzerland.intro') }}</p>
-        </div>
-
-        <!-- Main Benefits -->
-        <div class="why-switzerland__benefits">
-            <h3 class="why-switzerland__subtitle">{{ t('whySwitzerland.benefitsTitle') }}</h3>
-            <div class="why-switzerland__benefits-grid">
-                @for (benefit of mainBenefits; track benefit.title) {
-                <article class="why-card">
-                    <div class="why-card__icon">{{ benefit.icon }}</div>
-                    <div class="why-card__content">
-                        <h4 class="why-card__title">{{ benefit.title }}</h4>
-                        <p class="why-card__description">{{ benefit.description }}</p>
+<section class="w-full py-24 px-6 bg-white overflow-hidden" id="de-ce-elvetia">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+            <!-- Image Column -->
+            <div class="w-full lg:w-1/2 relative">
+                <div
+                    class="absolute -inset-4 bg-primary/5 rounded-2xl transform rotate-2 transition-transform duration-500 hover:rotate-1">
+                </div>
+                <div
+                    class="relative rounded-xl overflow-hidden shadow-xl aspect-[4/3] lg:aspect-square bg-surface-light group">
+                    <img src="assets/images/swiss-construction.png" alt="Construcții în Elveția"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div
+                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-sm shadow-sm flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                        <span class="text-xs font-bold text-text-main">Elveția</span>
                     </div>
-                </article>
-                }
+                </div>
             </div>
-        </div>
 
-        <!-- Lifestyle Section -->
-        <div class="why-switzerland__lifestyle">
-            <h3 class="why-switzerland__subtitle">{{ t('whySwitzerland.lifestyleTitle') }}</h3>
-            <ul class="why-switzerland__list">
-                @for (point of lifestylePoints; track point) {
-                <li class="why-switzerland__list-item">
-                    <span class="why-switzerland__check">✓</span>
-                    {{ point }}
-                </li>
-                }
-            </ul>
-        </div>
+            <!-- Content Column -->
+            <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-text-main leading-snug tracking-tight mb-6">
+                    {{ t('whySwitzerland.titleLine1') || 'De ce să lucrezi' }} <br>
+                    <span class="text-primary">{{ t('whySwitzerland.titleLine2') || 'în Elveția?' }}</span>
+                </h2>
+                <p class="text-lg text-text-muted leading-relaxed mb-8">{{ t('whySwitzerland.intro') }}</p>
 
-        <!-- CTA -->
-        <div class="why-switzerland__cta">
-            <p class="why-switzerland__cta-text">
-                {{ t('whySwitzerland.ctaText') }}
-                <strong>{{ t('whySwitzerland.ctaHighlight') }}</strong> {{ t('whySwitzerland.ctaEnd') }}
-            </p>
-            <a href="#aplica" class="why-switzerland__cta-btn">
-                {{ t('common.applyNow') }}
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
+                <div class="flex flex-col gap-4">
+                    @for (benefit of mainBenefits; track benefit.title) {
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1">
+                            <span class="material-symbols-outlined text-primary text-base font-bold">check</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-text-main text-lg">{{ benefit.title }}</h4>
+                            <p class="text-sm text-text-muted">{{ benefit.description }}</p>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </section>

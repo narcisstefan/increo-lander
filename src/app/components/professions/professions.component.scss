@@ -3,101 +3,273 @@
 
 .professions {
     position: relative;
-    background: $color-bg-medium;
+    padding: $spacing-20 0;
+    background: $color-surface-light;
 
-    &__container {
-        @include container;
+    @include lg {
+        padding: $spacing-28 0;
     }
 
-    &__header {
-        text-align: center;
-        margin-bottom: $spacing-12;
+    &__decoration {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 33%;
+        height: 100%;
+        background: rgba($color-border-light, 0.5);
+        display: none;
+        pointer-events: none;
 
-        @include md {
-            margin-bottom: $spacing-16;
+        @include lg {
+            display: block;
         }
     }
 
-    &__title {
-        @include section-title;
+    &__container {
+        max-width: $container-max-width;
+        margin: 0 auto;
+        padding: 0 $spacing-4;
+        position: relative;
+        z-index: 10;
+
+        @include md {
+            padding: 0 $spacing-6;
+        }
+
+        @include lg {
+            padding: 0 $spacing-8;
+        }
     }
 
-    &__subtitle {
-        @include section-subtitle;
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-8;
+        margin-bottom: $spacing-16;
+
+        @include lg {
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+    }
+
+    &__header-content {
+        max-width: 32rem;
+    }
+
+    &__label {
+        color: $color-primary;
+        font-weight: $font-weight-bold;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-3;
+    }
+
+    &__title {
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-extrabold;
+        color: $color-text-main;
+        line-height: $line-height-snug;
+
+        @include md {
+            font-size: $font-size-5xl;
+        }
+    }
+
+    &__view-all {
+        display: none;
+        align-items: center;
+        gap: $spacing-2;
+        font-weight: $font-weight-bold;
+        color: $color-primary;
+        text-decoration: none;
+        border-bottom: 2px solid $color-primary;
+        padding-bottom: $spacing-1;
+        transition: color $transition-base;
+
+        @include lg {
+            display: inline-flex;
+        }
+
+        &:hover {
+            color: $color-primary-dark;
+        }
+
+        .material-symbols-outlined {
+            font-size: 18px;
+        }
     }
 
     &__grid {
         display: grid;
-        gap: $spacing-4;
-        grid-template-columns: repeat(2, 1fr);
-
-        @include sm {
-            grid-template-columns: repeat(3, 1fr);
-        }
+        gap: $spacing-6;
 
         @include md {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
         }
 
         @include lg {
-            grid-template-columns: repeat(5, 1fr);
-            gap: $spacing-5;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__mobile-link {
+        margin-top: $spacing-8;
+        text-align: center;
+
+        @include lg {
+            display: none;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: $spacing-2;
+            font-weight: $font-weight-bold;
+            color: $color-primary;
+            text-decoration: none;
+            border-bottom: 2px solid $color-primary;
+            padding-bottom: $spacing-1;
         }
     }
 }
 
-.profession-card {
-    @include glass-card;
-    @include glass-card-hover;
-    padding: $spacing-5;
+.job-card {
+    background: white;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    border: 1px solid $color-border-light;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: $spacing-3;
-    cursor: pointer;
+    height: 100%;
+    transition: all 300ms ease;
 
-    @include md {
-        padding: $spacing-6;
-        gap: $spacing-4;
+    &:hover {
+        box-shadow: $shadow-xl;
     }
 
-    &__icon {
-        font-size: 2.5rem;
-        transition: transform $transition-spring;
+    &:hover .job-card__image-overlay {
+        background: transparent;
+    }
 
-        @include md {
-            font-size: 3rem;
-        }
+    &__image {
+        height: 192px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        position: relative;
+    }
 
-        .profession-card:hover & {
-            transform: scale(1.15);
-        }
+    &__image-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        transition: background 300ms ease;
     }
 
     &__content {
-        @include flex-col;
-        gap: $spacing-1;
+        padding: $spacing-6;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: $spacing-4;
     }
 
     &__title {
-        font-family: $font-body;
-        font-size: $font-size-sm;
-        font-weight: $font-weight-semibold;
-        color: $color-text-primary;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-main;
+    }
 
-        @include md {
-            font-size: $font-size-base;
+    &__location {
+        background: $color-surface-light;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-bold;
+        padding: $spacing-1 $spacing-2;
+        border-radius: $radius-sm;
+        color: $color-text-muted;
+    }
+
+    &__features {
+        list-style: none;
+        margin-bottom: $spacing-6;
+        flex: 1;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: $spacing-2;
+            margin-bottom: $spacing-2;
         }
     }
 
-    &__salary {
-        font-size: $font-size-xs;
-        font-weight: $font-weight-bold;
-        color: #ffd700; // Gold for salary visibility against dark bg
+    &__feature {
+        font-size: $font-size-sm;
+        color: $color-text-muted;
 
-        @include md {
-            font-size: $font-size-sm;
+        .material-symbols-outlined {
+            font-size: 16px;
+            color: $color-primary;
+        }
+    }
+
+    &__footer {
+        padding-top: $spacing-4;
+        border-top: 1px solid $color-border-light;
+    }
+
+    &__salary-label {
+        font-size: $font-size-xs;
+        color: $color-text-muted;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-1;
+    }
+
+    &__salary-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__salary {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-extrabold;
+        color: $color-primary;
+    }
+
+    &__btn {
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        background: rgba($color-primary, 0.1);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all $transition-base;
+
+        .material-symbols-outlined {
+            color: $color-primary;
+        }
+
+        .job-card:hover & {
+            background: $color-primary;
+
+            .material-symbols-outlined {
+                color: white;
+            }
         }
     }
 }

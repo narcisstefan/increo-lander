@@ -2,35 +2,62 @@
 @use '../../../styles/mixins' as *;
 
 .benefits {
-    position: relative;
-    background: linear-gradient(180deg, $color-bg-dark 0%, $color-bg-medium 100%);
+    padding: $spacing-20 0;
+    background: white;
 
-    &__container {
-        @include container;
+    @include lg {
+        padding: $spacing-28 0;
     }
 
-    &__header {
-        text-align: center;
-        margin-bottom: $spacing-12;
+    &__container {
+        max-width: $container-max-width;
+        margin: 0 auto;
+        padding: 0 $spacing-4;
 
         @include md {
-            margin-bottom: $spacing-16;
+            padding: 0 $spacing-6;
+        }
+
+        @include lg {
+            padding: 0 $spacing-8;
         }
     }
 
-    &__title {
-        @include section-title;
+    &__header {
+        margin-bottom: $spacing-16;
+        max-width: 48rem;
+
+        @include md {
+            margin-bottom: $spacing-20;
+        }
     }
 
     &__subtitle {
-        @include section-subtitle;
+        color: $color-primary;
+        font-weight: $font-weight-bold;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-3;
+    }
+
+    &__title {
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-extrabold;
+        color: $color-text-main;
+        line-height: $line-height-snug;
+        letter-spacing: -0.02em;
+
+        @include md {
+            font-size: $font-size-5xl;
+        }
     }
 
     &__grid {
         display: grid;
         gap: $spacing-6;
 
-        @include sm {
+        @include md {
             grid-template-columns: repeat(2, 1fr);
         }
 
@@ -42,41 +69,49 @@
 }
 
 .benefit-card {
-    @include glass-card;
-    @include glass-card-hover;
     padding: $spacing-8;
-    text-align: center;
+    border-radius: $radius-xl;
+    border: 1px solid $color-border-light;
+    background: $color-surface-light;
+    transition: all 300ms ease;
 
-    @include lg {
-        padding: $spacing-10;
+    &:hover {
+        border-color: rgba($color-primary, 0.3);
+        box-shadow: $shadow-swiss-hover;
     }
 
     &__icon {
-        font-size: 3rem;
-        margin-bottom: $spacing-4;
-        display: inline-block;
-        transition: transform $transition-spring;
+        width: 56px;
+        height: 56px;
+        border-radius: $radius-lg;
+        background: white;
+        box-shadow: $shadow-sm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: $spacing-6;
+        transition: transform 300ms ease;
 
         .benefit-card:hover & {
-            transform: scale(1.2) rotate(5deg);
+            transform: scale(1.1);
+        }
+
+        .material-symbols-outlined {
+            font-size: 28px;
+            color: $color-primary;
         }
     }
 
     &__title {
-        font-family: $font-display;
         font-size: $font-size-xl;
         font-weight: $font-weight-bold;
-        color: $color-text-primary;
+        color: $color-text-main;
         margin-bottom: $spacing-3;
-
-        @include md {
-            font-size: $font-size-2xl;
-        }
     }
 
     &__description {
         font-size: $font-size-base;
-        color: $color-text-secondary;
+        color: $color-text-muted;
         line-height: $line-height-relaxed;
     }
 }

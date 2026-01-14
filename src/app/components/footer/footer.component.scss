@@ -2,90 +2,87 @@
 @use '../../../styles/mixins' as *;
 
 .footer {
-    background: $color-bg-medium;
-    border-top: 1px solid $color-border;
+    background: $color-background-dark;
+    color: white;
     padding: $spacing-16 0 $spacing-8;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
     &__container {
-        @include container;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 $spacing-6;
     }
 
     &__grid {
         display: grid;
-        gap: $spacing-10;
+        gap: $spacing-12;
         margin-bottom: $spacing-12;
 
-        @include sm {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include lg {
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: $spacing-16;
+        @include md {
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 
     &__col {
         &--brand {
-            @include sm {
-                grid-column: span 2;
-            }
-
-            @include lg {
+            @include md {
                 grid-column: span 1;
             }
         }
     }
 
     &__logo {
-        display: inline-block;
-        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
         margin-bottom: $spacing-4;
 
-        &-svg {
-            height: 28px;
-            width: auto;
-            fill: $color-text-primary;
-            transition: fill $transition-base;
+        &-icon {
+            width: 32px;
+            height: 32px;
+            background: $color-primary;
+            border-radius: $radius-sm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: $font-weight-bold;
+            color: white;
+            font-size: $font-size-xl;
         }
 
-        &:hover .footer__logo-svg {
-            fill: $color-primary;
+        &-text {
+            font-size: $font-size-2xl;
+            font-weight: $font-weight-bold;
+            letter-spacing: -0.02em;
         }
     }
 
     &__description {
-        font-size: $font-size-base;
-        color: $color-text-muted;
+        font-size: $font-size-sm;
+        color: rgba(255, 255, 255, 0.6);
         line-height: $line-height-relaxed;
-        max-width: 320px;
+        margin-bottom: $spacing-6;
     }
 
     &__col-title {
-        font-family: $font-body;
-        font-size: $font-size-base;
-        font-weight: $font-weight-semibold;
-        color: $color-text-primary;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: rgba(255, 255, 255, 0.9);
         margin-bottom: $spacing-4;
-        text-transform: uppercase;
-        letter-spacing: 1px;
     }
 
     &__list {
         display: flex;
         flex-direction: column;
-        gap: $spacing-3;
+        gap: $spacing-2;
     }
 
     &__list-item {
-        display: flex;
-        align-items: center;
-        gap: $spacing-2;
-        font-size: $font-size-base;
-        color: $color-text-secondary;
+        font-size: $font-size-sm;
 
         a {
-            color: $color-text-secondary;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
             transition: color $transition-base;
 
             &:hover {
@@ -94,20 +91,64 @@
         }
     }
 
-    &__list-icon {
-        font-size: $font-size-base;
-        flex-shrink: 0;
+    // Social links
+    &__social {
+        display: flex;
+        gap: $spacing-4;
+        margin-bottom: $spacing-6;
+    }
+
+    &__social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+        text-decoration: none;
+        transition: background $transition-base;
+
+        &:hover {
+            background: $color-primary;
+        }
     }
 
     // Bottom bar
     &__bottom {
         padding-top: $spacing-8;
-        border-top: 1px solid $color-border;
-        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+        align-items: center;
+
+        @include md {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 
     &__copyright {
-        font-size: $font-size-sm;
-        color: $color-text-muted;
+        font-size: $font-size-xs;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+        font-size: $font-size-xs;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: $radius-full;
+        background: $color-success;
     }
 }

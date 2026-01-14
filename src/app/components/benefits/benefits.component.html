@@ -1,18 +1,25 @@
-<section class="benefits section" id="beneficii">
-    <div class="benefits__container">
+<section class="py-20 lg:py-28 bg-white" id="beneficii">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="benefits__header">
-            <h2 class="benefits__title">{{ t('benefits.title') }}</h2>
-            <p class="benefits__subtitle">{{ t('benefits.subtitle') }}</p>
+        <div class="mb-16 md:mb-20 max-w-2xl">
+            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-3">{{ t('benefits.sectionLabel') ||
+                'Beneficii Premium' }}</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold text-text-main leading-snug tracking-tight">{{
+                t('benefits.title') }}</h3>
         </div>
 
         <!-- Benefits Grid -->
-        <div class="benefits__grid">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             @for (benefit of benefits; track benefit.title; let i = $index) {
-            <article class="benefit-card" [style.animation-delay.ms]="i * 100">
-                <div class="benefit-card__icon">{{ benefit.icon }}</div>
-                <h3 class="benefit-card__title">{{ benefit.title }}</h3>
-                <p class="benefit-card__description">{{ benefit.description }}</p>
+            <article
+                class="p-8 rounded-xl border border-gray-200 bg-surface-light transition-all duration-300 hover:border-primary/30 hover:shadow-swiss-hover">
+                <div
+                    class="w-14 h-14 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
+                    <span class="material-symbols-outlined text-primary text-3xl">{{ benefit.materialIcon || 'star'
+                        }}</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-main mb-3">{{ benefit.title }}</h4>
+                <p class="text-base text-text-muted leading-relaxed">{{ benefit.description }}</p>
             </article>
             }
         </div>

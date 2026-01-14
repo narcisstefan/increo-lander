@@ -13,7 +13,6 @@ interface TeamMember {
   selector: 'app-team',
   standalone: true,
   templateUrl: './team.component.html',
-  styleUrl: './team.component.scss',
 })
 export class TeamComponent {
   private translationService = inject(TranslationService);

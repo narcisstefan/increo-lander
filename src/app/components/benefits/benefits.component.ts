@@ -3,6 +3,7 @@ import { TranslationService } from '../../core/services/translation.service';
 
 interface Benefit {
   icon: string;
+  materialIcon?: string;
   title: string;
   description: string;
 }
@@ -11,7 +12,6 @@ interface Benefit {
   selector: 'app-benefits',
   standalone: true,
   templateUrl: './benefits.component.html',
-  styleUrl: './benefits.component.scss',
 })
 export class BenefitsComponent {
   private translationService = inject(TranslationService);

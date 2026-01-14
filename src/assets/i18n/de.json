@@ -10,10 +10,12 @@
   "nav": {
     "benefits": "Vorteile",
     "professions": "Berufe",
-    "whySwitzerland": "Warum Schweiz",
+    "whySwitzerland": "Warum Schweiz?",
     "contact": "Kontakt",
     "requirements": "Anforderungen",
-    "apply": "Bewerben"
+    "apply": "Bewerben",
+    "cta": "Jetzt Bewerben",
+    "team": "Team"
   },
   "hero": {
     "badge": "OFFIZIELLE REKRUTIERUNG FÜR DIE SCHWEIZ",
@@ -25,91 +27,125 @@
     "swissContract": "Schweizer Vertrag",
     "avgSalary": "5.500 CHF/Monat",
     "avgSalaryDesc": "Durchschnittliches Nettogehalt",
+    "agencyBadge": "Offiziell akkreditierte Agentur in der Schweiz",
+    "workersBadge": "Über 500 Arbeiter im letzten Jahr platziert",
+    "satisfactionRate": "Zufriedenheitsrate",
+    "activeSites": "Aktive Baustellen",
     "stats": {
       "workers": "Platzierte Arbeiter",
       "experience": "Jahre Erfahrung",
-      "satisfaction": "Zufriedenheit"
+      "verified": "Job Verifiziert",
+      "processing": "Bearbeitungszeit"
     }
   },
   "benefits": {
     "title": "Warum in der Schweiz arbeiten?",
     "subtitle": "Vorteile, die Ihr berufliches und finanzielles Leben verändern werden",
+    "sectionLabel": "Premium Vorteile",
     "items": [
       {
         "icon": "💰",
+        "materialIcon": "payments",
         "title": "Attraktive Gehälter",
-        "description": "4.500 - 7.000 CHF netto monatlich für qualifizierte Bauarbeiter"
+        "description": "Beträchtliche Nettoeinkünfte, die es Ihnen ermöglichen, zu sparen und komfortabel zu leben."
       },
       {
         "icon": "🏠",
+        "materialIcon": "apartment",
         "title": "Unterkunft Garantiert",
-        "description": "Moderne Wohnung in der Nähe der Baustelle, vollständig vom Arbeitgeber bezahlt"
+        "description": "Geprüfte Wohnungen und Zimmer, nahe am Arbeitsplatz, voll möbliert."
       },
       {
         "icon": "✈️",
+        "materialIcon": "directions_bus",
         "title": "Kostenloser Transport",
-        "description": "Reise von Rumänien in die Schweiz vollständig vom Unternehmen organisiert"
+        "description": "Organisierter Transport von Rumänien zur Unterkunft und täglicher Shuttle."
       },
       {
         "icon": "📋",
+        "materialIcon": "verified_user",
         "title": "Legaler Vertrag",
-        "description": "Schweizer Vertrag mit allen Rechten eines lokalen Bürgers"
+        "description": "Arbeitsvertrag direkt mit dem Schweizer Arbeitgeber, alle Steuern ordnungsgemäß bezahlt."
       },
       {
         "icon": "🏥",
+        "materialIcon": "medical_services",
         "title": "Krankenversicherung",
-        "description": "Vollständige Deckung bei Unfall oder Berufskrankheit"
+        "description": "Voller Zugang zum erstklassigen Schweizer Gesundheitssystem für Sie und Ihre Familie."
       },
       {
         "icon": "🎁",
+        "materialIcon": "card_giftcard",
         "title": "13. Monatsgehalt",
-        "description": "Bonus im Dezember + weitere Vorteile im Laufe des Jahres"
+        "description": "Vertraglich garantierter Jährlicher Bonus, proportional zur Arbeitszeit."
       }
     ]
   },
   "professions": {
     "title": "Gesuchte Berufe",
     "subtitle": "Wählen Sie Ihr Fachgebiet und sehen Sie das Gehaltsangebot",
+    "sectionLabel": "Offene Stellen",
+    "viewAll": "Alle Jobs Anzeigen",
+    "netSalary": "Nettogehalt",
     "items": [
-      { "icon": "🧱", "title": "Maurer", "salary": "5.000-6.000 CHF" },
-      { "icon": "🪵", "title": "Zimmermann", "salary": "5.000-6.500 CHF" },
-      { "icon": "⚡", "title": "Elektriker", "salary": "5.500-7.000 CHF" },
-      { "icon": "🔧", "title": "Installateur", "salary": "5.000-6.500 CHF" },
-      { "icon": "🪞", "title": "Fliesenleger", "salary": "4.800-5.800 CHF" },
-      { "icon": "📐", "title": "Trockenbauer", "salary": "4.500-5.500 CHF" },
-      { "icon": "🚪", "title": "Schreiner", "salary": "5.000-6.000 CHF" },
-      { "icon": "🎨", "title": "Maler", "salary": "4.500-5.500 CHF" },
-      { "icon": "🏗️", "title": "Eisenflechter", "salary": "5.200-6.200 CHF" },
-      { "icon": "👷", "title": "Bauleiter", "salary": "6.000-8.000 CHF" }
+      {
+        "title": "Maurer",
+        "salary": "5.500 - 6.200 CHF",
+        "location": "Zürich",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCs6hDkDHNK3c9DcPBrDQaqiH9ecSi3F8rkTv4w9QYWGCL1z-mVffteBBfefQo1yiYeeFL5A20zKhapWzWthftJfw8zjSeBNBUL8uYkBWmAH-6XaNKqERNl7_-Oo96L9sIizXsPnhIJWWOKyoRB5U_bRUDfE16RMEg6miAI_U_nj8x3gXKTFE_7lpyvEyE0EXK54fjaGtERmXrVpMzVTIjty0jh3hIiaxsoyjOQFaLi5sK3PWrr0bRu_Mlh9YRG0YYO5GXBBimfLmTS",
+        "features": [
+          "Sichtmauerwerk und Rohbau",
+          "Technische Pläne lesen"
+        ]
+      },
+      {
+        "title": "Elektriker",
+        "salary": "5.800 - 6.500 CHF",
+        "location": "Bern",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuACc05QZkH2NFmwxYitOkLGRTXtOjIJP3s3UcqGPw9AktDBP4hIB3iSCCEayRobMi_RU5eEIpAA1cGoLlYRBkdkYc-vrMuIUMFsr1KQ_-4loEhPyRc3z9a6xf7ybSodGU3zbeXkNd1eSEVY1FZ43lr2go7bN1Ba5Etc-U1QR7mVFZu-ZyJIZVBRlPK4pHbxkq0jnQyGrE3Ei4RrKJ8bnxMPbfntaQa84GJeoYDSYWNkj52PWh6X3nh91B2ZlGTpUCvX8iihXttpKitu",
+        "features": [
+          "Schwach-/Starkstrominstallationen",
+          "Schaltschrankinstallation"
+        ]
+      },
+      {
+        "title": "Zimmermann",
+        "salary": "5.300 - 6.000 CHF",
+        "location": "Luzern",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMGIXzh6gBxFG8tVWaql4h6WdYa3MSJ6cqQWb1kL9JiAszX_kvx79lEWPA9mycqJp2lCKfdp-hP1sivflKDY28HT6WgA3TezQZhr9b2IdRgpV54NyO9RI98mqSZmWj_0D2H9Ol6LW1YxOlejRRztk7o67jjGAfsShM6RPc5h4d5j7yL6RZLmNMCu-enuabnY3u67kXCERUrtdte5baKvO6plkHeLmCoUntyzNSaC6kZLplj1IVfS1PP76WBKxY-Ccg0H9NfeEv12__",
+        "features": [
+          "Systemschalung (Doka/Peri)",
+          "Höhenarbeit"
+        ]
+      }
     ]
   },
   "requirements": {
     "title": "Welche Anforderungen müssen Sie erfüllen?",
     "subtitle": "Prüfen Sie, ob Sie sich für eine Stelle in der Schweiz qualifizieren",
+    "sectionLabel": "Zulassungskriterien",
     "items": [
       {
-        "icon": "🔧",
-        "title": "Bauerfahrung",
-        "description": "Mindestens 2-3 Jahre nachweisbare Erfahrung im Baubereich",
-        "borderColor": "red"
+        "materialIcon": "work_history",
+        "title": "Erfahrung",
+        "description": "Wir suchen Fachleute mit mindestens 3 Jahren relevanter Erfahrung im Baubereich. Ausführungsqualität hat Priorität."
       },
       {
-        "icon": "🗣️",
-        "title": "Sprachkenntnisse",
-        "description": "Mindestens Konversationsniveau in einer der Sprachen:",
-        "highlight": "Deutsch, Italienisch, Französisch oder Portugiesisch",
-        "borderColor": "gold"
+        "materialIcon": "translate",
+        "title": "Sprache",
+        "description": "Deutschkenntnisse auf Konversationsniveau (A2-B1). Kommunikation auf der Baustelle ist für die Sicherheit unerlässlich."
       },
       {
-        "icon": "📅",
+        "materialIcon": "calendar_month",
         "title": "Verfügbarkeit",
-        "description": "Langfristige Beschäftigung, mindestens 6 Monate, mit Verlängerungsmöglichkeit",
-        "borderColor": "blue"
+        "description": "Flexibilität für sofortigen Arbeitsbeginn oder zu einem vereinbarten Datum. Verträge sind befristet oder unbefristet."
       }
     ]
   },
   "whySwitzerland": {
     "title": "Warum in der Schweiz arbeiten?",
+    "titleLine1": "Warum arbeiten",
+    "titleLine2": "in der Schweiz?",
     "intro": "Die Schweiz ist nicht nur ein Land - sie ist eine Gelegenheit, Ihr Leben zu verändern. Mit den höchsten Gehältern in Europa, ausgezeichneten Arbeitsbedingungen und einer unvergleichlichen Lebensqualität ist die Schweiz das ideale Ziel für Bauprofis.",
     "benefitsTitle": "Was wir Ihnen bieten:",
     "benefits": [
@@ -196,20 +232,41 @@
       "10+ Jahre"
     ],
     "languages": [
-      { "id": "german", "label": "Deutsch" },
-      { "id": "italian", "label": "Italienisch" },
-      { "id": "french", "label": "Französisch" },
-      { "id": "portuguese", "label": "Portugiesisch" },
-      { "id": "english", "label": "Englisch" }
+      {
+        "id": "german",
+        "label": "Deutsch"
+      },
+      {
+        "id": "italian",
+        "label": "Italienisch"
+      },
+      {
+        "id": "french",
+        "label": "Französisch"
+      },
+      {
+        "id": "portuguese",
+        "label": "Portugiesisch"
+      },
+      {
+        "id": "english",
+        "label": "Englisch"
+      }
     ]
   },
   "team": {
     "title": "Kontaktieren Sie Uns Direkt",
     "subtitle": "Unser engagiertes Team ist hier, um alle Ihre Fragen zu beantworten. Zögern Sie nicht, uns direkt für Details zu den verfügbaren Möglichkeiten zu kontaktieren.",
-    "ctaText": "Oder füllen Sie das obige Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden!"
+    "ctaText": "Oder füllen Sie das obige Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden!",
+    "officeTitle": "Hauptsitz",
+    "licensedAgency": "Lizenzierte Rekrutierungsagentur",
+    "canton": "Kanton Zug, Schweiz",
+    "secoCert": "SECO-Zertifikat"
   },
   "footer": {
     "description": "Professionelle Rekrutierungsagentur für den Bausektor in der Schweiz. Wir verbinden rumänische Talente mit den besten Schweizer Karrieremöglichkeiten.",
+    "navigation": "Navigation",
+    "followUs": "Folgen Sie uns",
     "contact": "Kontakt",
     "location": "6340 Baar, Schweiz",
     "quickLinks": "Schnelllinks",
