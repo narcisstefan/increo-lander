@@ -30,15 +30,15 @@
                 <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl pl-6 border-l-4 border-primary"
                     [innerHTML]="t('hero.subtitle')"></p>
 
-                <!-- CTAs -->
+                <!-- CTAs - Fixed height to prevent CLS -->
                 <div class="flex flex-wrap gap-4 pt-4">
                     <a href="#aplica"
-                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white text-base lg:text-lg font-bold rounded-md shadow-swiss hover:bg-primary-dark hover:-translate-y-1 hover:shadow-lg transition-all">
+                        class="w-full sm:w-auto min-h-[56px] inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white text-base lg:text-lg font-bold rounded-md shadow-swiss hover:bg-primary-dark hover:-translate-y-1 hover:shadow-lg transition-all">
                         <span>{{ t('common.applyNow') }}</span>
                         <span class="material-symbols-outlined text-xl">arrow_forward</span>
                     </a>
                     <a href="#beneficii"
-                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-text-main text-base lg:text-lg font-bold border-2 border-gray-200 rounded-md hover:border-primary hover:text-primary transition-all">
+                        class="w-full sm:w-auto min-h-[56px] inline-flex items-center justify-center px-8 py-4 bg-white text-text-main text-base lg:text-lg font-bold border-2 border-gray-200 rounded-md hover:border-primary hover:text-primary transition-all">
                         {{ t('common.learnMore') }}
                     </a>
                 </div>
