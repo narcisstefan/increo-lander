@@ -87,7 +87,37 @@
     "subtitle": "Selectează domeniul tău de expertiză și vezi oferta salarială",
     "sectionLabel": "Oportunități Deschise",
     "viewAll": "Vezi Toate Joburile",
+    "showLess": "Arată Mai Puține",
+    "noJobs": "Momentan nu sunt job-uri disponibile.",
     "netSalary": "Salariu Net",
+    "jobTitles": {
+      "maurer": "Zidar (Maurer)",
+      "zimmermann": "Dulgher (Zimmermann)",
+      "eisenflechter": "Fierar Betonist",
+      "elektriker": "Electrician (Elektriker)",
+      "fliesenleger": "Faianțar (Fliesenleger)",
+      "trockenbauer": "Montator Rigips",
+      "schreiner": "Tâmplar (Schreiner)",
+      "maler": "Zugrav (Maler)",
+      "installateur": "Instalator (Installateur)",
+      "bauleiter": "Șef de Șantier"
+    },
+    "jobFeatures": {
+      "masonry": "Zidărie aparentă și brută",
+      "blueprints": "Citire planuri tehnice",
+      "electrical_low": "Instalații curent slab/tare",
+      "electrical_panels": "Montaj tablouri electrice",
+      "formwork": "Cofraje sistem (Doka/Peri)",
+      "height_work": "Lucru la înălțime",
+      "plumbing": "Instalații sanitare",
+      "heating": "Încălzire și climatizare",
+      "tiling": "Montaj gresie și faianță",
+      "finishing": "Lucrări de finisaje",
+      "drywall": "Montaj pereți și tavane",
+      "carpentry": "Tâmplărie și dulgherie",
+      "painting": "Vopsitorie și finishing",
+      "site_management": "Coordonare echipe pe șantier"
+    },
     "items": [
       {
         "title": "Zidar (Maurer)",

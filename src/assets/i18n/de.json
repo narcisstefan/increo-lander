@@ -87,7 +87,37 @@
     "subtitle": "Wählen Sie Ihr Fachgebiet und sehen Sie das Gehaltsangebot",
     "sectionLabel": "Offene Stellen",
     "viewAll": "Alle Jobs Anzeigen",
+    "showLess": "Weniger Anzeigen",
+    "noJobs": "Derzeit sind keine Jobs verfügbar.",
     "netSalary": "Nettogehalt",
+    "jobTitles": {
+      "maurer": "Maurer",
+      "zimmermann": "Zimmermann",
+      "eisenflechter": "Eisenflechter",
+      "elektriker": "Elektriker",
+      "fliesenleger": "Fliesenleger",
+      "trockenbauer": "Trockenbauer",
+      "schreiner": "Schreiner",
+      "maler": "Maler",
+      "installateur": "Installateur",
+      "bauleiter": "Bauleiter"
+    },
+    "jobFeatures": {
+      "masonry": "Sichtmauerwerk und Rohbau",
+      "blueprints": "Lesen technischer Pläne",
+      "electrical_low": "Stark- und Schwachstrominstallationen",
+      "electrical_panels": "Montage von Schaltschränken",
+      "formwork": "Schalungssysteme (Doka/Peri)",
+      "height_work": "Arbeiten in der Höhe",
+      "plumbing": "Sanitärinstallationen",
+      "heating": "Heizung und Klimaanlagen",
+      "tiling": "Fliesen- und Plattenverlegung",
+      "finishing": "Ausbauarbeiten",
+      "drywall": "Montage von Wänden und Decken",
+      "carpentry": "Zimmerei und Schreinerei",
+      "painting": "Malerarbeiten und Finishing",
+      "site_management": "Koordination von Baustellenteams"
+    },
     "items": [
       {
         "title": "Maurer",
