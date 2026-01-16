@@ -18,6 +18,20 @@
                 {{ t('common.resetForm') }}
             </button>
         </div>
+        } @else if (hasError()) {
+        <!-- Error State -->
+        <div class="bg-white rounded-xl p-12 text-center shadow-2xl border-t-4 border-red-500">
+            <div class="text-6xl mb-6">❌</div>
+            <h3 class="text-2xl md:text-3xl font-bold text-red-600 mb-4">{{ t('form.error.title') || 'Eroare la
+                trimitere' }}</h3>
+            <p class="text-lg text-text-muted max-w-md mx-auto mb-8">{{ t('form.error.message') || 'A apărut o problemă
+                la trimiterea aplicației. Te rugăm să încerci din nou sau să ne contactezi direct.' }}</p>
+            <button type="button"
+                class="px-6 py-3 bg-primary text-white font-bold rounded-md hover:bg-primary-dark transition-all"
+                (click)="resetForm()">
+                {{ t('common.tryAgain') || 'Încearcă din nou' }}
+            </button>
+        </div>
         } @else {
         <!-- Form -->
         <form class="bg-white rounded-xl shadow-2xl p-8 md:p-12 border-t-4 border-primary" [formGroup]="form"
