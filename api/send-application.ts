@@ -1,13 +1,6 @@
 const nodemailer = require('nodemailer');
-const formidable = require('formidable');
+const { IncomingForm } = require('formidable');
 const fs = require('fs');
-
-// Disable body parsing so we can handle multipart form data
-module.exports.config = {
-    api: {
-        bodyParser: false,
-    },
-};
 
 interface ApplicationData {
     fullName: string;
@@ -20,7 +13,7 @@ interface ApplicationData {
 
 function parseForm(req: any): Promise<{ fields: any; files: any }> {
     return new Promise((resolve, reject) => {
-        const form = formidable({ multiples: false, maxFileSize: 10 * 1024 * 1024 });
+        const form = new IncomingForm({ maxFileSize: 10 * 1024 * 1024 });
         form.parse(req, (err: any, fields: any, files: any) => {
             if (err) reject(err);
             else resolve({ fields, files });
@@ -140,4 +133,11 @@ module.exports = async function handler(req: any, res: any) {
         console.error('Email sending error:', error);
         return res.status(500).json({ error: 'Failed to send application' });
     }
+};
+
+// Config for Vercel to disable body parsing
+module.exports.config = {
+    api: {
+        bodyParser: false,
+    },
 };
