@@ -7,24 +7,22 @@
                     'Echipa Noastră' }}</h3>
                 <div class="grid gap-6 sm:grid-cols-2">
                     @for (member of teamMembers; track member.email) {
-                    <article class="flex flex-col bg-white p-6 rounded-lg border border-gray-200">
-                        <div class="flex items-center gap-4 mb-4">
-                            <img [src]="member.image" [alt]="member.name"
-                                class="w-16 h-16 rounded-md object-cover shadow-sm" loading="lazy">
-                            <div>
-                                <h4 class="font-bold text-text-main">{{ member.name }}</h4>
-                                <p class="text-xs text-primary font-medium uppercase tracking-wider">{{ member.role }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 mt-auto">
+                    <article
+                        class="flex flex-col items-center bg-white p-6 rounded-lg border border-gray-200 text-center">
+                        <img [src]="member.image" [alt]="member.name"
+                            class="w-56 h-56 rounded-2xl object-cover shadow-xl mb-4" loading="lazy">
+                        <h4 class="font-bold text-text-main text-xl mb-1">{{ member.name }}</h4>
+                        <p class="text-sm text-primary font-medium uppercase tracking-wider mb-4">{{ member.role }}</p>
+                        <div class="flex flex-col gap-2 w-full">
                             <a [href]="'mailto:' + member.email"
-                                class="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-sm font-semibold text-text-main bg-white border border-gray-200 rounded-sm hover:border-primary hover:text-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">mail</span> Email
+                                class="flex items-center justify-center gap-2 text-base text-text-muted hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-lg text-primary">mail</span>
+                                {{ member.email }}
                             </a>
-                            <a href="#"
-                                class="p-2 bg-blue-100 text-blue-600 rounded-sm hover:bg-blue-600 hover:text-white transition-all">
-                                <span class="material-symbols-outlined text-sm">work</span>
+                            <a [href]="'tel:' + member.phone"
+                                class="flex items-center justify-center gap-2 text-base text-text-muted hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-lg text-primary">call</span>
+                                {{ member.phone }}
                             </a>
                         </div>
                     </article>

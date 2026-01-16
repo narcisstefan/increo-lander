@@ -1,5 +1,6 @@
 import { Component, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { TranslationService } from '../../core/services/translation.service';
 
 interface LanguageOption {
@@ -16,9 +17,11 @@ interface LanguageOption {
 export class ApplicationFormComponent {
   private translationService = inject(TranslationService);
   private fb = inject(FormBuilder);
+  private http = inject(HttpClient);
 
   isSubmitted = signal(false);
   isSubmitting = signal(false);
+  hasError = signal(false);
   fileName = signal<string | null>(null);
 
   form: FormGroup;
@@ -80,12 +83,33 @@ export class ApplicationFormComponent {
 
     if (this.form.valid) {
       this.isSubmitting.set(true);
+      this.hasError.set(false);
 
-      setTimeout(() => {
-        console.log('Form submitted:', this.form.value);
-        this.isSubmitting.set(false);
-        this.isSubmitted.set(true);
-      }, 1500);
+      // Get selected languages
+      const selectedLanguages = this.languages
+        .filter(lang => this.form.get(lang.id)?.value === true)
+        .map(lang => lang.label);
+
+      const payload = {
+        fullName: this.form.get('fullName')?.value,
+        email: this.form.get('email')?.value,
+        phone: this.form.get('phone')?.value,
+        profession: this.form.get('profession')?.value,
+        experience: this.form.get('experience')?.value,
+        languages: selectedLanguages,
+      };
+
+      this.http.post('/api/send-application', payload).subscribe({
+        next: () => {
+          this.isSubmitting.set(false);
+          this.isSubmitted.set(true);
+        },
+        error: (err) => {
+          console.error('Application submit error:', err);
+          this.isSubmitting.set(false);
+          this.hasError.set(true);
+        },
+      });
     } else {
       Object.keys(this.form.controls).forEach((key) => {
         this.form.get(key)?.markAsTouched();
@@ -97,5 +121,6 @@ export class ApplicationFormComponent {
     this.form.reset();
     this.fileName.set(null);
     this.isSubmitted.set(false);
+    this.hasError.set(false);
   }
 }
