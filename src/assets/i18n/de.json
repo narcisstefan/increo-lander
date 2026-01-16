@@ -5,7 +5,8 @@
     "scroll": "Scrollen",
     "sending": "Wird gesendet...",
     "submit": "Bewerbung Absenden",
-    "resetForm": "Neue Bewerbung Senden"
+    "resetForm": "Neue Bewerbung Senden",
+    "tryAgain": "Erneut versuchen"
   },
   "nav": {
     "benefits": "Vorteile",
@@ -188,6 +189,10 @@
     "success": {
       "title": "Bewerbung Erfolgreich Gesendet!",
       "message": "Vielen Dank für Ihr Interesse! Wir werden Sie innerhalb von 24 Stunden kontaktieren, um über verfügbare Möglichkeiten zu sprechen."
+    },
+    "error": {
+      "title": "Fehler beim Senden",
+      "message": "Beim Senden Ihrer Bewerbung ist ein Problem aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt."
     },
     "fields": {
       "fullName": "Vollständiger Name",

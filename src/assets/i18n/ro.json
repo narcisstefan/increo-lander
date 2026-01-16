@@ -5,7 +5,8 @@
     "scroll": "Scroll",
     "sending": "Se trimite...",
     "submit": "Trimite Aplicația",
-    "resetForm": "Trimite o Nouă Aplicație"
+    "resetForm": "Trimite o Nouă Aplicație",
+    "tryAgain": "Încearcă din nou"
   },
   "nav": {
     "benefits": "Beneficii",
@@ -188,6 +189,10 @@
     "success": {
       "title": "Aplicație Trimisă cu Succes!",
       "message": "Mulțumim pentru interes! Te vom contacta în maximum 24 de ore pentru a discuta despre oportunitățile disponibile."
+    },
+    "error": {
+      "title": "Eroare la trimitere",
+      "message": "A apărut o problemă la trimiterea aplicației. Te rugăm să încerci din nou sau să ne contactezi direct."
     },
     "fields": {
       "fullName": "Nume Complet",

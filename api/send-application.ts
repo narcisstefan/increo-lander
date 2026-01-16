@@ -3,7 +3,7 @@ const formidable = require('formidable');
 const fs = require('fs');
 
 // Disable body parsing so we can handle multipart form data
-export const config = {
+module.exports.config = {
     api: {
         bodyParser: false,
     },
