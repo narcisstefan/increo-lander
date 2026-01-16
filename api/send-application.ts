@@ -2,6 +2,62 @@ const nodemailer = require('nodemailer');
 const { IncomingForm } = require('formidable');
 const fs = require('fs');
 
+// Translation mappings RO -> DE
+const professionMap: Record<string, string> = {
+    // Romanian to German
+    'Zidar': 'Maurer',
+    'Dulgher': 'Zimmermann',
+    'Fierar Betonist': 'Eisenflechter',
+    'Electrician': 'Elektriker',
+    'Faianțar': 'Fliesenleger',
+    'Montator Rigips': 'Trockenbauer',
+    'Tâmplar': 'Schreiner',
+    'Zugrav': 'Maler',
+    'Instalator': 'Installateur',
+    'Șef de Șantier': 'Bauleiter',
+    'Altă Meserie': 'Anderer Beruf',
+    // German (passthrough)
+    'Maurer': 'Maurer',
+    'Zimmermann': 'Zimmermann',
+    'Eisenflechter': 'Eisenflechter',
+    'Elektriker': 'Elektriker',
+    'Fliesenleger': 'Fliesenleger',
+    'Trockenbauer': 'Trockenbauer',
+    'Schreiner': 'Schreiner',
+    'Maler': 'Maler',
+    'Installateur': 'Installateur',
+    'Bauleiter': 'Bauleiter',
+    'Anderer Beruf': 'Anderer Beruf',
+};
+
+const experienceMap: Record<string, string> = {
+    // Romanian to German
+    '1-2 ani': '1-2 Jahre',
+    '3-5 ani': '3-5 Jahre',
+    '5-10 ani': '5-10 Jahre',
+    '10+ ani': '10+ Jahre',
+    // German (passthrough)
+    '1-2 Jahre': '1-2 Jahre',
+    '3-5 Jahre': '3-5 Jahre',
+    '5-10 Jahre': '5-10 Jahre',
+    '10+ Jahre': '10+ Jahre',
+};
+
+const languageMap: Record<string, string> = {
+    // Romanian to German
+    'Germană': 'Deutsch',
+    'Italiană': 'Italienisch',
+    'Franceză': 'Französisch',
+    'Portugheză': 'Portugiesisch',
+    'Engleză': 'Englisch',
+    // German (passthrough)
+    'Deutsch': 'Deutsch',
+    'Italienisch': 'Italienisch',
+    'Französisch': 'Französisch',
+    'Portugiesisch': 'Portugiesisch',
+    'Englisch': 'Englisch',
+};
+
 interface ApplicationData {
     fullName: string;
     email: string;
@@ -19,6 +75,16 @@ function parseForm(req: any): Promise<{ fields: any; files: any }> {
             else resolve({ fields, files });
         });
     });
+}
+
+function translateToGerman(value: string, map: Record<string, string>): string {
+    return map[value] || value;
+}
+
+function translateLanguages(languages: string): string {
+    if (!languages) return 'Keine ausgewählt';
+    const langArray = languages.split(', ').map(lang => translateToGerman(lang.trim(), languageMap));
+    return langArray.join(', ');
 }
 
 module.exports = async function handler(req: any, res: any) {
@@ -56,6 +122,11 @@ module.exports = async function handler(req: any, res: any) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
+        // Translate to German
+        const professionDE = translateToGerman(data.profession, professionMap);
+        const experienceDE = translateToGerman(data.experience, experienceMap);
+        const languagesDE = translateLanguages(data.languages);
+
         // Create SMTP transporter with Google
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -66,9 +137,6 @@ module.exports = async function handler(req: any, res: any) {
                 pass: process.env.SMTP_PASSWORD,
             },
         });
-
-        // Format languages
-        const languagesText = data.languages || 'Keine ausgewählt';
 
         // Email content in German
         const emailHtml = `
@@ -89,15 +157,15 @@ module.exports = async function handler(req: any, res: any) {
         </tr>
         <tr>
           <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Beruf:</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">${data.profession}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${professionDE}</td>
         </tr>
         <tr>
           <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Erfahrung:</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">${data.experience}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${experienceDE}</td>
         </tr>
         <tr>
           <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Fremdsprachen:</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">${languagesText}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${languagesDE}</td>
         </tr>
       </table>
       <hr>
@@ -107,7 +175,7 @@ module.exports = async function handler(req: any, res: any) {
         const mailOptions: any = {
             from: `"Increo Website" <${process.env.SMTP_EMAIL}>`,
             to: process.env.RECIPIENT_EMAIL || process.env.SMTP_EMAIL,
-            subject: `Neue Bewerbung: ${data.profession} - ${data.fullName}`,
+            subject: `Neue Bewerbung: ${professionDE} - ${data.fullName}`,
             html: emailHtml,
             replyTo: data.email,
         };
