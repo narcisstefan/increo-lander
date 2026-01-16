@@ -90,16 +90,22 @@ export class ApplicationFormComponent {
         .filter(lang => this.form.get(lang.id)?.value === true)
         .map(lang => lang.label);
 
-      const payload = {
-        fullName: this.form.get('fullName')?.value,
-        email: this.form.get('email')?.value,
-        phone: this.form.get('phone')?.value,
-        profession: this.form.get('profession')?.value,
-        experience: this.form.get('experience')?.value,
-        languages: selectedLanguages,
-      };
+      // Create FormData for file upload
+      const formData = new FormData();
+      formData.append('fullName', this.form.get('fullName')?.value);
+      formData.append('email', this.form.get('email')?.value);
+      formData.append('phone', this.form.get('phone')?.value);
+      formData.append('profession', this.form.get('profession')?.value);
+      formData.append('experience', this.form.get('experience')?.value);
+      formData.append('languages', selectedLanguages.join(', '));
 
-      this.http.post('/api/send-application', payload).subscribe({
+      // Add CV file if present
+      const cvFile = this.form.get('cv')?.value;
+      if (cvFile) {
+        formData.append('cv', cvFile, cvFile.name);
+      }
+
+      this.http.post('/api/send-application', formData).subscribe({
         next: () => {
           this.isSubmitting.set(false);
           this.isSubmitted.set(true);
