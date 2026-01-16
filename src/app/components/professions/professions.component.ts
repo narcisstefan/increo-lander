@@ -5,19 +5,19 @@ import { JobsService, Job } from '../../core/services/jobs.service';
 
 // Image mapping based on job title_key
 const JOB_IMAGES: Record<string, string> = {
-  'maurer': 'assets/images/jobs/maurer.jpg',
-  'zimmermann': 'assets/images/jobs/zimmermann.jpg',
-  'eisenflechter': 'assets/images/jobs/eisenflechter.jpg',
-  'elektriker': 'assets/images/jobs/elektriker.jpg',
-  'fliesenleger': 'assets/images/jobs/fliesenleger.jpg',
-  'trockenbauer': 'assets/images/jobs/trockenbauer.jpg',
-  'schreiner': 'assets/images/jobs/schreiner.jpg',
-  'maler': 'assets/images/jobs/maler.jpg',
-  'installateur': 'assets/images/jobs/installateur.jpg',
-  'bauleiter': 'assets/images/jobs/bauleiter.jpg',
+  'maurer': 'assets/images/jobs/maurer.webp',
+  'zimmermann': 'assets/images/jobs/zimmermann.webp',
+  'eisenflechter': 'assets/images/jobs/eisenflechter.webp',
+  'elektriker': 'assets/images/jobs/elektriker.webp',
+  'fliesenleger': 'assets/images/jobs/fliesenleger.webp',
+  'trockenbauer': 'assets/images/jobs/trockenbauer.webp',
+  'schreiner': 'assets/images/jobs/schreiner.webp',
+  'maler': 'assets/images/jobs/maler.webp',
+  'installateur': 'assets/images/jobs/installateur.webp',
+  'bauleiter': 'assets/images/jobs/bauleiter.webp',
 };
 
-const DEFAULT_JOB_IMAGE = 'assets/images/jobs/default.jpg';
+const DEFAULT_JOB_IMAGE = 'assets/images/jobs/default.webp';
 
 @Component({
   selector: 'app-professions',
