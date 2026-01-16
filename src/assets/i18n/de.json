@@ -117,39 +117,7 @@
       "carpentry": "Zimmerei und Schreinerei",
       "painting": "Malerarbeiten und Finishing",
       "site_management": "Koordination von Baustellenteams"
-    },
-    "items": [
-      {
-        "title": "Maurer",
-        "salary": "5.500 - 6.200 CHF",
-        "location": "Zürich",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCs6hDkDHNK3c9DcPBrDQaqiH9ecSi3F8rkTv4w9QYWGCL1z-mVffteBBfefQo1yiYeeFL5A20zKhapWzWthftJfw8zjSeBNBUL8uYkBWmAH-6XaNKqERNl7_-Oo96L9sIizXsPnhIJWWOKyoRB5U_bRUDfE16RMEg6miAI_U_nj8x3gXKTFE_7lpyvEyE0EXK54fjaGtERmXrVpMzVTIjty0jh3hIiaxsoyjOQFaLi5sK3PWrr0bRu_Mlh9YRG0YYO5GXBBimfLmTS",
-        "features": [
-          "Sichtmauerwerk und Rohbau",
-          "Technische Pläne lesen"
-        ]
-      },
-      {
-        "title": "Elektriker",
-        "salary": "5.800 - 6.500 CHF",
-        "location": "Bern",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuACc05QZkH2NFmwxYitOkLGRTXtOjIJP3s3UcqGPw9AktDBP4hIB3iSCCEayRobMi_RU5eEIpAA1cGoLlYRBkdkYc-vrMuIUMFsr1KQ_-4loEhPyRc3z9a6xf7ybSodGU3zbeXkNd1eSEVY1FZ43lr2go7bN1Ba5Etc-U1QR7mVFZu-ZyJIZVBRlPK4pHbxkq0jnQyGrE3Ei4RrKJ8bnxMPbfntaQa84GJeoYDSYWNkj52PWh6X3nh91B2ZlGTpUCvX8iihXttpKitu",
-        "features": [
-          "Schwach-/Starkstrominstallationen",
-          "Schaltschrankinstallation"
-        ]
-      },
-      {
-        "title": "Zimmermann",
-        "salary": "5.300 - 6.000 CHF",
-        "location": "Luzern",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBMGIXzh6gBxFG8tVWaql4h6WdYa3MSJ6cqQWb1kL9JiAszX_kvx79lEWPA9mycqJp2lCKfdp-hP1sivflKDY28HT6WgA3TezQZhr9b2IdRgpV54NyO9RI98mqSZmWj_0D2H9Ol6LW1YxOlejRRztk7o67jjGAfsShM6RPc5h4d5j7yL6RZLmNMCu-enuabnY3u67kXCERUrtdte5baKvO6plkHeLmCoUntyzNSaC6kZLplj1IVfS1PP76WBKxY-Ccg0H9NfeEv12__",
-        "features": [
-          "Systemschalung (Doka/Peri)",
-          "Höhenarbeit"
-        ]
-      }
-    ]
+    }
   },
   "requirements": {
     "title": "Welche Anforderungen müssen Sie erfüllen?",
