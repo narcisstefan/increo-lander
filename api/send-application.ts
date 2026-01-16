@@ -106,7 +106,7 @@ module.exports = async function handler(req: any, res: any) {
         // Prepare email options
         const mailOptions: any = {
             from: `"Increo Website" <${process.env.SMTP_EMAIL}>`,
-            to: `${process.env.RECIPIENT_EMAIL || process.env.SMTP_EMAIL}, stefannarcis+test@gmail.com`,
+            to: process.env.RECIPIENT_EMAIL || process.env.SMTP_EMAIL,
             subject: `Neue Bewerbung: ${data.profession} - ${data.fullName}`,
             html: emailHtml,
             replyTo: data.email,
