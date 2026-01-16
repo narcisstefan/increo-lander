@@ -41,15 +41,28 @@
   <!-- Preload LCP Image -->
   <link rel="preload" as="image" href="assets/images/hero-background.webp" fetchpriority="high">
 
-  <!-- Self-hosted Manrope Font - Eliminates Google Fonts chain -->
+  <!-- Self-hosted Manrope Font - INLINED to eliminate render-blocking -->
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope.woff2" crossorigin>
-  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    @font-face {
+      font-family: 'Manrope';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('/assets/fonts/manrope.woff2') format('woff2');
+    }
+  </style>
 
-  <!-- Material Icons (async load - not critical) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Material Icons - Fully deferred (loaded after page renders) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
+  <script>
+    window.addEventListener('load', function () {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap';
+      document.head.appendChild(link);
+    });
+  </script>
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
       rel="stylesheet">
