@@ -11,7 +11,8 @@
     }
 
     body {
-        font-family: 'Manrope', sans-serif;
+        /* Font fallback stack to prevent CLS */
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         @apply text-text-main bg-white antialiased overflow-x-hidden;
     }
 
