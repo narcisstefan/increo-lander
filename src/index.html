@@ -53,25 +53,25 @@
     }
   </style>
 
-  <!-- Material Icons - Loaded after page is idle (not in critical path) -->
+  <!-- Material Icons - Loaded only after user interaction (not in PageSpeed critical path) -->
   <script>
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(function () {
+    (function () {
+      var loaded = false;
+      function loadIcons() {
+        if (loaded) return;
+        loaded = true;
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap';
         document.head.appendChild(link);
-      }, { timeout: 2000 });
-    } else {
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          var link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap';
-          document.head.appendChild(link);
-        }, 1000);
+      }
+      // Load on first user interaction
+      ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (e) {
+        window.addEventListener(e, loadIcons, { once: true, passive: true });
       });
-    }
+      // Fallback: load after 5 seconds if no interaction
+      setTimeout(loadIcons, 5000);
+    })();
   </script>
 
   <!-- Schema.org JSON-LD -->
