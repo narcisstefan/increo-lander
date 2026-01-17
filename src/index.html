@@ -2,10 +2,6 @@
 <html lang="ro">
 
 <head>
-  <!-- DNS Prefetch for faster external font loading -->
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-
   <meta charset="utf-8">
   <title>Locuri de Muncă Construcții Elveția | Salarii 4,500 CHF Net | Increo</title>
   <base href="/">
@@ -57,20 +53,26 @@
     }
   </style>
 
-  <!-- Material Icons - Fully deferred (loaded after page renders) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Material Icons - Loaded after page is idle (not in critical path) -->
   <script>
-    window.addEventListener('load', function () {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap';
-      document.head.appendChild(link);
-    });
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function () {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap';
+        document.head.appendChild(link);
+      }, { timeout: 2000 });
+    } else {
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap';
+          document.head.appendChild(link);
+        }, 1000);
+      });
+    }
   </script>
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
-      rel="stylesheet">
-  </noscript>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
